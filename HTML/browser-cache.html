@@ -5,9 +5,99 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../CSS/browser.cache.css">
-    <title>Document</title>
+    <title>Browser Cache and Edge Cache Explained</title>
+    <link id="favicon" href="https://dodov.dev/media/site/d0298ef0fd-1614418428/favicon-monokai.png" rel="icon" type="image/png">
 </head>
 <body>
-    
+        <div class="container">
+        <header>
+            <a href="../index.html">home</a>
+            <a href="blog.html">blog</a>
+            <a href="">
+                <em>browser-cache-and-edge-cache-explained</em>  
+                <a href="blog.html">&#9747;</a>
+            </a>
+            <a href="projects.html">projects</a>
+        </header>
+        <div class="content">
+            <div class="numbers"></div>
+            <div class="text">
+                <div class="title">
+                    <div class="left">
+                        <p class="heading">Browser Cache and Edge Cache Explained</p>
+                        <p class="subheading">You updated it? Well, yes, but not really.</p>
+                    </div>
+                    <div class="right">
+                       <p>08 Feb 2022
+                        <br>224 lines
+                       </p>
+                    </div>
+                </div>
+                <div class="browser-image">
+                    <img src="../IMG/browser-edge-cache-cover-342x.png" alt="">
+                </div>
+                <section class="below-image">
+                    <p>
+                    Does the following sound familiar?</p>
+                    <ul class="symbol-list">
+                        <li>"The new feature is live."</li>
+                        <li>"I can't see it."</li>
+                        <li>"Have you cleared your browser cache?"</li>
+                        <li>"Yes. It's still not visible."</li>
+                        <li>"<em>Hmmm…</em>"</li>
+                    </ul>
+                    <p>
+                    This could happen when there are multiple layers of <a href="" class="green-underline">caching</a> in play and one of them has not expired. If you've used something like <a class="green-underline">Cloudflare CDN</a>, you've likely ran into this.</p>
+                </section>
+                <section class="question1">
+                    <div class="question-title">What is Browser Caching?</div>
+                    <p>Let's say your website has a logo in the header and it appears on all pages. When users land on your website and start browsing, they'll be downloading the same logo on every page load. This inefficiency increases bandwidth costs and load times.</p>
+                    <p>When sending the logo to the user, your server can also provide the <a href="" class="green-underline"><span class="orange-text">Cache-Control</span> response header</a> with an expiration value like max-‍age=604800. This will tell the browser to store the logo locally, on the user's hard drive, for 604800 seconds, which is 7 days. Until that time passes, whenever your website references the logo through the same URL, the user's browser will use its cached version. After that, the browser will request the logo from your server once again and cache it for another 7 days.</p>
+                </section>
+                <section class="question2">
+                    <div class="question-title">What is an Edge?</div>
+                    <p>If your audience is mainly European, it would probably make sense to put your server in London, for example. But if your website starts receiving traffic from America, those requests would have to travel an entire ocean, which can make them several times slower, due to <a href="" class="green-underline">latency</a>. With a <a href="" class="green-underline">CDN</a>, you have a system of servers spread throughout the world that <a href="" class="green-underline">proxy</a> user traffic to your server and <a href="" class="green-underline">solve this performance issue</a>.</p>
+                    <p>Among the <a href="" class="green-underline">hundreds of server</a>s in a CDN, the geographically closest one to a user is called an edge and is the one that this user's browser directly communicates with:</p>
+                    <div class="image">
+                        <img src="../IMG/cache-diagram-1280x.png" alt="">
+                    </div>
+                    <p class="image-subtitle">Response flow from server to user over a CDN</p>
+                </section>
+                <section class="question3">
+                    <div class="question-title"></div>
+                    
+                </section>
+                <section class="question4">
+                    <div class="question-title"></div>
+                </section>
+                <section class="conclusion">
+                    <div class="question-title"></div>
+                </section>
+                <section class="footer-separator"><hr></section>
+                <footer>
+            <div class="socials">
+                <ul>
+                    <li><a href="" class="green-underline">GitHub</a></li>
+                    <li class="dot">•</li>
+                    <li><a href="" class="green-underline">Twitter</a></li>
+                    <li class="dot">•</li>
+                    <li><a href="" class="green-underline">LinkedIn</a></li>
+                    <li class="dot">•</li>
+                    <li><a href="" class="green-underline">Instagram</a></li>
+                </ul>
+            </div>
+            <div class="style-options">
+                <select name="" id="">
+                    <option value="">Dark+</option>
+                    <option value="">Light+</option>
+                    <option value="" selected>Monokai</option>
+                    <option value="">GitHub Dark</option>
+                    <option value="">GitHub Light</option>
+                    <option value="">Solarized Light</option>
+                </select>
+            </div>
+                </footer>
+            </div>
+        </div>
 </body>
 </html>
