@@ -30,6 +30,7 @@ a{
     margin-top: 5%;
     background-color: var(--container-bg);
     padding-bottom: 40%;
+    overflow: hidden;
 }
 header{
     font-size: 13px;
@@ -41,8 +42,8 @@ header ul{
     display: flex;
 }
 header ul li{
-    padding: 8px 70px 8px 10px;
-    /* min-width: 15%; */
+    padding: 8px;
+    min-width: 120px;
     border-left: 1px solid var(--body-bg-color);
 }
 header .home, header .blog{
@@ -74,6 +75,9 @@ header a{
     display: flex;
     gap: 24px;
     margin: 24px 0;
+}
+.small-screen-title{
+    display: none;
 }
 .project-text{
     display: flex;
@@ -141,13 +145,47 @@ footer .style-options select option:hover{
     .container{
         margin-top: 0;
     }
+    header ul li{
+        min-width: 25%;
+    }
+    .text{
+        padding-left: 5ch;
+        padding-right: 2ch;
+    }
     .project-box{
         display: block;
     }
-    .img-box{
-        display: inline;
+    .project-text{
+        max-width: 360px;
+        font-size: 14px;
     }
-    .img-box img{
+    .small-screen-title{
+        display: flex;
+        gap: 18px;
+        margin-bottom: 20px;
+    }
+    .img img{
+        width: 42px;
+    } 
+    .title{
+        display: flex;
+        flex-direction: column;
+        /* justify-content: space-between; */
+    }
+    .title .bold-title{
+        font-weight: 700;
+        text-decoration: none;
+    }
+    .title .bold-title:hover{
+        color: var(--link-hover);
+    }
+    .title .green-underline{
+        font-size: 14px;
+    }
+    .img-box, .project-title, .ref-link{
+        display: none;
+    }
+    .project-image2 img{
         width: 42px;
     }
     footer{
