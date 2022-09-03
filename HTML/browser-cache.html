@@ -64,14 +64,61 @@
                     <p class="image-subtitle">Response flow from server to user over a CDN</p>
                 </section>
                 <section class="question3">
-                    <div class="question-title"></div>
-                    
+                    <div class="question-title">What is Edge Caching?</div>
+                    <p>While browser caching helps with many requests by the same user, it doesn't solve the issue of many users making requests, because each user has their own browser with their own cache. To fix this, you need a shared cache.</p>
+                    <p>With a CDN, all user requests are funneled through the closest edge server. If that server caches the responses, it'll be able to serve those users without having to bother your own server. This means that it no longer matters if you have 1 user or 10000, because once that first response for a resource is served and cached, the load shifts from your server to the CDN, which can serve the other 9999 by itself.</p>
+                    <p>Cloudflare caches only static assets <a href="" class="green-underline">by default</a>, such as images, fonts, scripts, etc. The HTML containing the page content is not cached, because if you have an e-commerce store, for example, each user will have their own shopping cart, and if you cache that, the next user will see the previous one's items. On the other hand, an image is expected to be the same for every user and can safely be cached.</p>
+                    <p>Sites without shopping carts and other dynamic content, such as blogs, can opt in to <a href="" class="green-underline">cache everything</a>. This makes it possible for an edge to serve entire pages all by itself, without having to contact your server, as long as everything is cached. This way, you can have a very weak server, yet handle thousands of requests per second, because the load is mainly on the CDN.</p>
                 </section>
                 <section class="question4">
-                    <div class="question-title"></div>
+                    <div class="question-title">Cache Invalidation</div>
+                    <p>The hard part in caching is picking a <a href=""  class="green-underline">time to live (TTL)</a>, which determines when an entry is stale and should be discarded.</p>
+                    <p>Images and other assets can be cached for longer periods, because even if you pick a way too long TTL, you can change the URL to the resource and trigger a fresh request-response cycle:</p>
                 </section>
+
+                <section>
+                    https://example.com/about-us/image.jpg?version=2
+                </section>
+
+                <section>
+                    <p>However, if you've chosen to cache the HTML content of your pages as well, you'd have to get around that too, since changing the image URL means changing the HTML. So you'd have to change the page URL as well:</p>
+                </section>
+
+                <section>
+                    https://example.com/about-us?version=2
+                </section>
+
+                <section>
+                    <p>This is where things get tricky, because even if your web framework can easily change all links to the updated page, every other site on the internet also has to do it. That's impossible, so you have to pick a window of time that you're comfortable with and in which users may see outdated content.</p>
+                </section>
+
+                <section>
+                    <p>If you have the following setup:</p>
+                    <ul>
+                        <li>Browser cache TTL: 30 minutes</li>
+                        <li>Edge cache TTL: 1 minute</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <p>…there are several possible outcomes:</p>
+                    <ol>
+                        <li>If a change happened over 30 minutes ago, both caches would have expired and it's guaranteed that the user will see the updated version.</li>
+                        <li>If a change happened over 1 minute ago, only the edge cache is guaranteed to have expired. If a user has seen the page within the last 30 minutes and is cached by their browser, they can see the change by clearing their browser cache, opening an incognito window, or doing a <a href="" class="green-underline">hard reload</a> .</li>
+                        <li>If a change happened less than 1 minute ago, both caches would still be considered fresh. Users will not be able to see the update, even if they clear their browser cache, because the closest edge server would still return the old version. The only solution here is for the website owner to prematurely force the cache to become stale by <a href=""  class="green-underline">purging it</a> .</li>
+                    </ol>
+                </section>
+
+
+
+
+
                 <section class="conclusion">
-                    <div class="question-title"></div>
+                    <div class="question-title">Conclusion</div>
+                    <p> <strong>Browser cache</strong> helps with subsequent requests by the same user and makes your website feel snappy, because your assets don't have to travel over the internet.</p>
+                    <p> <strong>Edge cache</strong> helps with requests by a geographically close group of users and can greatly reduce server load while improving response times in distant countries.</p>
+                    <p>Pick a lower TTL to reduce the chance of outdated content, or a higher TTL for better cache effectiveness, but be ready to change URLs, open incognito windows, and purge cache.</p>
+
                 </section>
                 <section class="footer-separator"><hr></section>
                 <footer>
