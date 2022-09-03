@@ -71,6 +71,9 @@ ol{
    left: 3%;
     top: 4.3%;
 }
+ol .hide{
+  display: none;
+}
 li{
     text-align: right;
 }
@@ -379,3 +382,18 @@ footer .fa-circle {
 
 
 
+/* .about_dodov{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+}
+.about_dodov .description{
+  grid-column: 1/3;
+  grid-auto-columns: 30%;
+}
+.author_img{
+justify-self: start;
+width: 50%;
+height: 120px;
+background-size: contain;
+background-repeat: no-repeat;
+} */
