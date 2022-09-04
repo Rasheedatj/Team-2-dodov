@@ -227,6 +227,11 @@ ol li::before{
   flex-direction: column;
   gap: 1em;
 }
+.projects h1 {
+  font-size: var(--continueFont);
+  color: var(--headingColor);
+  text-transform: capitalize;
+}
 .projects .box {
   display: flex;
   gap: 1em;
