@@ -1,0 +1,81 @@
+@media screen and (max-width:420px){
+   .container{
+       margin: 0;
+       width: 100%;
+   }
+
+   nav{
+       width: 70%;
+   }
+   footer{
+       margin-top: 5em;
+   }
+   footer .links{
+       flex-direction: column;
+       gap: .5em;
+   }
+   footer .dot{
+       display: block;
+   }
+   footer .neon{
+       padding-bottom: 0;
+   }
+   footer .fa-circle{
+       display: none;
+   }
+   .main{
+       padding: 2em;
+       padding-left: 3em;
+   }
+   ol{
+       top: 2.5%;
+       line-height: 1.635;
+   }
+   ol .hide{
+       display: block;
+   }
+   .about_dodov .side_text{
+       flex-direction: row;
+       flex-wrap: wrap;
+   }
+   .about_dodov .description{
+       margin-left: -50%;
+       margin-top: 1em;
+   }
+   .about_dodov .image{
+       background-position: top;
+   }
+   .latest_articles .article{
+       flex-direction: column;
+   }
+   .latest_articles .image{
+       width: 100%;
+       height: 200px;
+   }
+   .article .side_text p{
+       font-size: 16px;
+   }
+   .latest_articles .side_text{
+       width: 100%;
+   }
+   .continue {
+       width: 45%;
+   }
+   .slash::after {
+    content: "------------------------------";
+    position: absolute;
+    color: var(--dateColor);
+    font-size: 30px;
+    right: 0;
+    font-family: "Times New Roman", Times, serif;
+  }
+   /* .projects .side_text{
+       display: flex;
+     flex-wrap: wrap;
+      
+   }
+   .projects .side_text .paragraph{
+       margin-left: -24%;
+       margin-top: 3em;
+   } */
+}
