@@ -11,13 +11,13 @@
 <body>
         <div class="container">
         <header>
-            <a href="../index.html">home</a>
-            <a href="blog.html">blog</a>
-            <a href="">
-                <em>browser-cache-and-edge-cache-explained</em>  
-                <a href="blog.html">&#9747;</a>
-            </a>
-            <a href="projects.html">projects</a>
+            <ul>
+                <li class="home"><a href="../index.html">home</a></li>
+                <li class="blog"><a href="blog.html">blog</a></li>
+                <li><a href="" class="browser-cache"><em>browser-cache-and-edge-cache-explained</em>
+                    <a href="blog.html">&#9747;</a></a></li>
+                <li class="projects"><a href="projects.html">projects</a></li>
+            </ul>
         </header>
         <div class="content">
             <div class="numbers"></div>
@@ -29,14 +29,14 @@
                     </div>
                     <div class="right">
                        <p>08 Feb 2022
-                        <br>224 lines
+                        <br>182 lines
                        </p>
                     </div>
                 </div>
                 <div class="browser-image">
-                    <img src="../IMG/browser-edge-cache-cover-342x.png" alt="">
+                    <img src="../IMG/browser-edge-cache-cover-640x.png" alt="">
                 </div>
-                <section class="below-image">
+                <div class="below-image">
                     <p>
                     Does the following sound familiar?</p>
                     <ul class="symbol-list">
@@ -44,15 +44,15 @@
                         <li>"I can't see it."</li>
                         <li>"Have you cleared your browser cache?"</li>
                         <li>"Yes. It's still not visible."</li>
-                        <li>"<em>Hmmm…</em>"</li>
+                        <li>"<b><em>Hmmm…</em></b>"</li>
                     </ul>
                     <p>
-                    This could happen when there are multiple layers of <a href="" class="green-underline">caching</a> in play and one of them has not expired. If you've used something like <a class="green-underline">Cloudflare CDN</a>, you've likely ran into this.</p>
-                </section>
+                    This could happen when there are multiple layers of <a href="" class="green-underline">caching</a> in play and one of them has not expired. If you've used something like <a href="" class="green-underline">Cloudflare CDN</a>, you've likely ran into this.</p>
+                </div>
                 <section class="question1">
                     <div class="question-title">What is Browser Caching?</div>
-                    <p>Let's say your website has a logo in the header and it appears on all pages. When users land on your website and start browsing, they'll be downloading the same logo on every page load. This inefficiency increases bandwidth costs and load times.</p>
-                    <p>When sending the logo to the user, your server can also provide the <a href="" class="green-underline"><span class="orange-text">Cache-Control</span> response header</a> with an expiration value like max-‍age=604800. This will tell the browser to store the logo locally, on the user's hard drive, for 604800 seconds, which is 7 days. Until that time passes, whenever your website references the logo through the same URL, the user's browser will use its cached version. After that, the browser will request the logo from your server once again and cache it for another 7 days.</p>
+                    <p>Let's say your website has a logo in the header and it appears on all pages. When users land on your website and start browsing, they'll be downloading the <strong>same</strong> logo on every page load. This inefficiency increases bandwidth costs and load times.</p>
+                    <p>When sending the logo to the user, your server can also provide the <a href="" class="green-underline"><span class="orange-text">Cache-Control</span> response header</a> with an expiration value like <span class="orange-text">max-‍age=604800</span>. This will tell the browser to store the logo locally, on the user's hard drive, for 604800 seconds, which is 7 days. Until that time passes, whenever your website references the logo through the same URL, the user's browser will use its cached version. After that, the browser will request the logo from your server once again and cache it for another 7 days.</p>
                 </section>
                 <section class="question2">
                     <div class="question-title">What is an Edge?</div>
@@ -64,14 +64,42 @@
                     <p class="image-subtitle">Response flow from server to user over a CDN</p>
                 </section>
                 <section class="question3">
-                    <div class="question-title"></div>
-                    
+                    <div class="question-title">What is Edge Caching?</div>
+                    <p>While browser caching helps with many requests by the same user, it doesn't solve the issue of many <em>users</em> making requests, because each user has their own browser with their own cache. To fix this, you need a <em>shared cache</em>.</p>
+                    <p>With a CDN, all user requests are funneled through the closest edge server. If that server caches the responses, it'll be able to serve those users without having to bother your own server. This means that it no longer matters if you have 1 user or 10000, because once that first response for a resource is served and cached, the load shifts from your server to the CDN, which can serve the other 9999 by itself.</p>
+                    <p>Cloudflare caches only static assets <a href="" class="green-underline">by default</a>, such as images, fonts, scripts, etc. The HTML containing the page content is not cached, because if you have an e-commerce store, for example, each user will have their own shopping cart, and if you cache that, the next user will see the previous one's items. On the other hand, an image is expected to be the same for every user and can safely be cached.</p>
+                    <p>Sites without shopping carts and other dynamic content, such as blogs, can opt in to <a href="" class="green-underline">cache everything</a>. This makes it possible for an edge to serve entire pages all by itself, without having to contact your server, as long as everything is cached. This way, you can have a very weak server, yet handle thousands of requests per second, because the load is mainly on the CDN.</p>
                 </section>
                 <section class="question4">
-                    <div class="question-title"></div>
+                    <div class="question-title">Cache Invalidation</div>
+                    <p>The hard part in caching is picking a <a href=""  class="green-underline">time to live (TTL)</a>, which determines when an entry is stale and should be discarded.</p>
+                    <p>Images and other assets can be cached for longer periods, because even if you pick a way too long TTL, you can change the URL to the resource and trigger a fresh request-response cycle:</p>
+                    <div class="scroll-container">
+                        https://example.com/about-us/image.jpg?<strong>version=2</strong>  
+                    </div>
+                    <p>However, if you've chosen to cache the HTML content of your pages as well, you'd have to get around that too, since changing the image URL means changing the HTML. So you'd have to change the page URL as well:</p>
+                    <div class="scroll-container">
+                        <!-- https://example.com/about-us?version=2   -->
+                    </div>
+                    <p>This is where things get tricky, because even if your web framework can easily change all links to the updated page, every other site on the internet also has to do it. That's impossible, so you have to pick a window of time that you're comfortable with and in which users may see outdated content.</p>
+                    <p>If you have the following setup:</p>
+                    <ul>
+                        <li>Browser cache TTL: 30 minutes</li>
+                        <li>Edge cache TTL: 1 minute</li>
+                    </ul>
+                    <p>…there are several possible outcomes:</p>
+                    <ol>
+                        <li>If a change happened over 30 minutes ago, both caches would have expired and it's guaranteed that the user will see the updated version.</li>
+                        <li>If a change happened over 1 minute ago, only the edge cache is guaranteed to have expired. If a user has seen the page within the last 30 minutes and is cached by their browser, they can see the change by clearing their browser cache, opening an incognito window, or doing a <a href="" class="green-underline">hard reload</a> .</li>
+                        <li>If a change happened less than 1 minute ago, both caches would still be considered fresh. Users will not be able to see the update, even if they clear their browser cache, because the closest edge server would still return the old version. The only solution here is for the website owner to prematurely force the cache to become stale by <a href=""  class="green-underline">purging it</a> .</li>
+                    </ol>
                 </section>
                 <section class="conclusion">
-                    <div class="question-title"></div>
+                    <div class="question-title">Conclusion</div>
+                    <p> <strong>Browser cache</strong> helps with subsequent requests by the same user and makes your website feel snappy, because your assets don't have to travel over the internet.</p>
+                    <p> <strong>Edge cache</strong> helps with requests by a geographically close group of users and can greatly reduce server load while improving response times in distant countries.</p>
+                    <p>Pick a lower TTL to reduce the chance of outdated content, or a higher TTL for better cache effectiveness, but be ready to change URLs, open incognito windows, and purge cache.</p>
+
                 </section>
                 <section class="footer-separator"><hr></section>
                 <footer>
