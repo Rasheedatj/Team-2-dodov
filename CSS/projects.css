@@ -129,21 +129,14 @@ header a{
     color: var(--hr-color);
 }
 .footer-separator hr{
-    position: relative;
-    display: none;
-    /* border: 1px dashed;
+    
+    display: inline;
+    border: 1px dashed;
     margin: 24px 0;
     overflow: hidden;
-    width: 100%; */
+    width: 100%;
 }
-.footer-separator::after{
-    content: "----------------------------------------------------------------";
-    position: absolute;
-    color: var(--dateColor);
-    font-size: 30px;
-    right: 10%;
-    font-family: "Times New Roman", Times, serif;
-}
+
 .footer-separator::before{
     content: '//';
     display: inline;
@@ -222,14 +215,6 @@ footer .style-options select option:hover{
     }
     .project-image2 img{
         width: 42px;
-    }
-    .footer-separator::after{
-        content: "---------------------------------------";
-        position: absolute;
-        color: var(--dateColor);
-        font-size: 20px;
-        right: 10%;
-        font-family: "Times New Roman", Times, serif;
     }
     footer{
         flex-direction: column;
