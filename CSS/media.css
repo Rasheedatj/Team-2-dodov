@@ -1,4 +1,4 @@
-@media screen and (max-width:400px){
+@media screen and (max-width:420px){
    .container{
        margin: 0;
        width: 100%;
@@ -103,7 +103,7 @@ ol .hide{
        margin-bottom: 3.3em;
    }
    .slash::after {
-    content: "--------------------------------------";
+    content: "------------------------------------";
     position: absolute;
     color: var(--dateColor);
     font-size: 23px;
