@@ -21,8 +21,7 @@
       </header>
       <main>
     <h1><b>Number of Ones</b></h1>
-    <p class="date">06 Aug 2022</p>
-    <p>Calculating digits in a series of numbers.</p>
+    <p class="sub-title">Calculating digits in a series of numbers.</p>
     <div class="image">
       <img
         src="../IMG/number-of-ones-cover-342x.png"
@@ -31,28 +30,24 @@
     </div>
     <p>
       In this post, I'll explain my solution to the programming puzzle from
-      <span><a href="#" target="_blank">the latest issue</a></span> of
-      <span><a href="#" target="_blank">@cassidoo</a></span
+      <span><a href="#" target="_blank" class="text-link">the latest issue</a></span> of
+      <span><a href="#" target="_blank" class="text-link">@cassidoo</a></span
       >'s newsletter.
     </p>
     <p>The task is simple:</p>
-    <p>
-      > Given an integer n, count the total number of 1 digits appearing in all
-      non-negative integers less than or equal to n.
+    <p  class="faded">
+      > Given an integer n, count the total number of 1 digits appearing in all non-negative integers less than or equal to n.
     </p>
 
     <p>
       Perhaps the most obvious solution is to just loop over the numbers,
-      convert them to strings, and count the digits. But the larger the input
-      number, the slower it gets. So, rather than counting, we can calculate the
-      result.
+      convert them to strings, and count the digits. But the larger the input number, the slower it gets. So, rather than counting, we can calculate the result.
     </p>
 
     <h2>Idea</h2>
 
     <p>
-      Let's start with the number of times that the digit 1 appears in the 0-9
-      range. It's just one. The number 1.
+      Let's start with the number of times that the digit 1 appears in the 0-9 range. It's just one. The number 1.
     </p>
 
     <p>
@@ -60,75 +55,77 @@
       being that it's repeated 10 times:
     </p>
     <div class="num-el">
-      <p>1, 11, 21, 31, 41, 51, 61, 71, 81, 91 ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ (10)</p>
+    <p>  
+        <pre> 1, 11, 21, 31, 41, 51, 61, 71, 81, 91 <br>
+ ↑   ↑   ↑   ↑   ↑   ↑   ↑   ↑   ↑   ↑ (10)</pre>
+          </p>
     </div>
 
     <p>
-      So, the units (rightmost digit) contributes to the sum with a total of 10
-      occurrences.
+      So, the units (rightmost digit) contributes to the sum with a total of 10 occurrences.
     </p>
 
     <p>
-      However, the range 10-19 is special, because each number there always
-      begins with 1:
+      However, the range 10-19 is special, because each number there always begins with 1:
     </p>
 
-    <div class="num-el2">
-      <p>10, 11, 12, 13, 14, 15, 16, 17, 18, 19 ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ (10)</p>
+    <div class="num-el">
+      <p>
+          <pre> 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 <br>
+  ↑   ↑   ↑   ↑   ↑   ↑   ↑   ↑   ↑   ↑ (10)
+</pre>
+        </p>
     </div>
-
-    <p>In total, the digit 1 appears 20 times in the numbers up to 99:</p>
 
     <div>
-      <p>- 10 times as a digit in the units column</p>
-      <p>- 10 times as a digit in the tens column</p>
+    <p>In total, the digit 1 appears 20 times in the numbers up to 99:</p>
+      <p class="one-times">10 times as a digit in the units column</p>
+      <p class="one-times2">10 times as a digit in the tens column</p>
     </div>
 
-    <p>// ----------------------------------------</p>
 
     <p>
       If we look at the numbers 0-999, we'll start to see patterns. Now, 1
       appears in the units column not 10, but 100 times:
     </p>
 
-    <div class="num-el3">
+    <div class="num-el">
       <p>
-        1, 11, 21... 131, 141, 151... 321, 641, 961... 991 ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑
-        (100)
+          <pre>1, 11, 21... 131, 141, 151... 321, 641, 961... 991 <br>
+↑   ↑   ↑      ↑    ↑    ↑      ↑    ↑    ↑      ↑ (100)
+</pre>
       </p>
     </div>
 
     <p>
       Notice how we can just take the last digit off the number and get the
-      number of times 1 will appear at the units position. For example, if we
-      have 236, we can take the 6 out and know that 1 will surely appear 23
-      times as a units digit. In this case, however, we must add one, because
-      231 is also part of the collection. If the end number was 230, we wouldn't
-      have that. Now, we can do the same, but for the tens. If we remove the 36
-      from 236, we get 2. So we know that the digit 1 will cycle 2 times in the
-      tens column:
+      number of times 1 will appear at the units position. For example, if we have 236, we can take the 6 out and know that 1 will surely appear 23 times as a units digit. In this case, however, we must add one, because
+      231 is also part of the collection. If the end number was 230, we wouldn't have that.  <br>
+      <br>
+      Now, we can do the same, but for the tens. If we remove the 36
+      from 236, we get 2. So we know that the digit 1 will cycle 2 times in the tens column:
     </p>
-
-    <p>10-19, 110-119 ↑ ↑ ↑ ↑</p>
 
     <p>
-      But since the tens digit is 3, which is bigger than 1, we get one extra
-      cycle, namely 210-219. If we had 206, 0 is less than 1, so we wouldn't get
-      that extra cycle. The special case is when the digit is 1. If we have 216,
-      then we get an incomplete extra cycle of only 7 repetitions, rather than
-      10. We go through 210-216, not 210-219. So the occurrences of 1 in the
-      tens column depends on columns to the right. This time, we have to remove
-      digits from the left side. For the number 216, we remove 21 from it and
-      get 6. We then have to add 1, because even though 210 has 0 in the units,
-      it still counts. We end up with 7, which is the number of ones in the
-      incomplete cycle. Here's the entire calculation:
+        <pre class="num-el">10-19, 110-119 <br>
+ ↑  ↑    ↑   ↑</pre>
     </p>
 
-    <div class="calc">
+    <p>
+      But since the tens digit is 3, which is bigger than 1, we get one extra cycle, namely 210-219. If we had 206, 0 is less than 1, so we wouldn't get that extra cycle. 
+      <br>
+      <br>
+      The special case is when the digit is 1. If we have 216,
+      then we get an incomplete extra cycle of only 7 repetitions, rather than 10. We go through 210-216, not 210-219. So the occurrences of 1 in the tens column depends on columns to the right. This time, we have to remove digits from the left side. For the number 216, we remove 21 from it and get 6. We then have to add 1, because even though 210 has 0 in the units, it still counts. We end up with 7, which is the number of ones in the incomplete cycle. Here's the entire calculation:
+    </p>
+
+    <div class="num-el">
       <p>
-        236 ││└ 23*1 + 1*1 extra (because 6 > 1) = 24 │└─ 2*10 + 1*10 extra
-        (because 3 > 1) = 30 └── 0*100 + 1*100 extra (because 2 > 1) = 100 total
-        = 154
+        236 <br>
+        ││└ 23*1 + 1*1 extra (because 6 > 1) = 24 <br>
+        │└─ 2*10 + 1*10 extra (because 3 > 1) = 30 <br>
+        └── 0*100 + 1*100 extra (because 2 > 1) = 100 total <br>
+        <pre>                                        = 154 </pre>
       </p>
     </div>
 
@@ -136,110 +133,137 @@
       Notice how we have a multiplier for each digit, and it increases
       exponentially: 1 for units, 10 for tens, 100 for hundreds.
     </p>
-
-    <h2>Implementation</h2>
+<br>
+<br>
+    <h2><b>Implementation</b></h2>
     <p>
       Let's start with the multiplier. In code, we can loop over the digits in
       reverse to get it:
     </p>
 
-    <div class="loop">
+    <div class="num-el">
       <p>
-        [6, 3, 2].forEach((digit, i) => { let mul = Math.pow(10, i); // 1, 10,
-        100 });
+        [6, 3, 2].forEach((digit, i) => { <br> let mul = Math.pow(10, i); // 1, 10, 100 });
       </p>
     </div>
     <p>
-      Now, we have to be able to take digits out of the number. In our first
-      iteration, for the units, we have to take 23 out of 236. We can do that by
-      dividing the number by 10, getting 23.6. We can then round it down with
-      Math.floor() to get 23. For the tens, we have to get 2 out of 236. We can
+      Now, we have to be able to take digits out of the number. In our first iteration, for the units, we have to take 23 out of 236. We can do that by dividing the number by 10, getting 23.6. We can then round it down with Math.floor() to get 23. <br>
+      <br>
+      For the tens, we have to get 2 out of 236. We can
       do that by dividing by 100, getting 2.36, and rounding down to 2.
-      Basically, we multiply our multiplier by 10, divide, then floor, and we
-      have successfully taken out the necessary digits:
+      <br>
+      <br>
+      Basically, we multiply our multiplier by 10, divide, then floor, and we have successfully taken out the necessary digits:
+    </p>
+
+    <p class="num-el">
+      236 <br>
+      ││└ mul = 1; 236/(mul*10) = 236/10 = 23.6; round(23.6) = 23; <br>
+      │└─ mul = 10; 236/(mul*10) = 236/100 = 2.36; round(2.36) = 2; <br>
+      └── mul = 100; 236/(mul*10) = 236/1000 = 0.23; round(0.23) = 0; 
     </p>
 
     <p>
-      236 ││└ mul = 1; 236/(mul*10) = 236/10 = 23.6; round(23.6) = 23; │└─ mul =
-      10; 236/(mul*10) = 236/100 = 2.36; round(2.36) = 2; └── mul = 100;
-      236/(mul*10) = 236/1000 = 0.23; round(0.23) = 0;
+      All that's left now is to apply the multiplier to those numbers and we get the number of complete cycles with a 1 that each digit goes through:
     </p>
 
-    <p>
-      All that's left now is to apply the multiplier to those numbers and we get
-      the number of complete cycles with a 1 that each digit goes through:
-    </p>
-
-    <p>236 ││└ 23*1 = 23 │└─ 2*10 = 20 └── 0*100 = 0</p>
+    <p class="num-el">
+        236 <br>
+        ││└ 23*1 = 23 <br>
+        │└─ 2*10 = 20 <br>
+        └── 0*100 = 0</p>
 
     <p>In code, we can do it like this:</p>
 
-    <p>let cycles = Math.floor(n / (mul * 10)); let ones = cycles * mul;</p>
+    <p class="num-el">let cycles = Math.floor(n / (mul * 10)); <br>
+        let ones = cycles * mul;</p>
 
     <p>
-      Now, we have to handle cases where the digit is greater than 1. That's
-      when we have one extra cycle:
+      Now, we have to handle cases where the digit is greater than 1. That's when we have one extra cycle:
     </p>
 
-    <p>
-      236 └─ 3 > 1 => extra cycle (210-219) 206 └─ 0 < 1 => no extra cycle (we
-      don't reach 210)
+    <p class="num-el">
+      236 <br>
+      └─ 3 > 1 => extra cycle (210-219) <br> 
+      <br>
+      206 <br>
+      └─ 0 < 1 => no extra cycle (we don't reach 210)
     </p>
 
     <p>We add an extra if statement:</p>
 
-    <p class="if-stmt">
-      let cycles = Math.floor(n / (mul * 10)); let ones = cycles * mul; if
-      (digit > 1) { ones += mul; // add one extra cycle }
+    <p class="num-el">
+      let cycles = Math.floor(n / (mul * 10)); <br>
+      let ones = cycles * mul; <br>
+      <br> 
+      if
+      (digit > 1) { <br>
+          ones += mul; // add one extra cycle <br>
+        }
     </p>
 
     <p>
-      Finally, we have the edge case where the digit is exactly 1. This is where
-      we have an incomplete cycle and the result depends on the digits to the
-      right:
+      Finally, we have the edge case where the digit is exactly 1. This is where we have an incomplete cycle and the result depends on the digits to the right:
+    </p>
+
+    <p class="num-el">
+      216  <br>
+      └─ just 10-16, not 10-19, so we extract 6 <br>
+      <br>
+      136 <br>
+      └── just 100-136, not 100-199, so we extract 36
     </p>
 
     <p>
-      216 └─ just 10-16, not 10-19, so we extract 6 136 └── just 100-136, not
-      100-199, so we extract 36
+      We can get digits on the right by applying %, the <span class="text-link"> remainder operator</span>, to the number and the multiplier:
+    </p>
+
+    <p class="num-el">
+      216 % 10 = divide by 10 and get the remainder => 6 136 % 100 = divide by 100 and get the remainder => 36
     </p>
 
     <p>
-      We can get digits on the right by applying %, the remainder operator, to
-      the number and the multiplier:
+      However, we must add 1 to that remainder, because we need to count the 0 as well. In other words, for the tens, we have:
     </p>
 
-    <p>
-      216 % 10 = divide by 10 and get the remainder => 6 136 % 100 = divide by
-      100 and get the remainder => 36
-    </p>
-
-    <p>
-      However, we must add 1 to that remainder, because we need to count the 0
-      as well. In other words, for the tens, we have:
-    </p>
-
-    <p>
+    <p class="num-el">
       210, 211, 212, 213, 214, 215, 216 => 7 numbers in total
       └┴───────────────────────────────── this counts as well
     </p>
 
     <p>So we need to extend our if statement:</p>
-    <p>
-      if (digit > 1) { ones += mul; // add one extra cycle } else if (digit ===
-      1) { ones += (n % mul) + 1; // incomplete cycle }
+    <p class="num-el">
+      if (digit > 1) { <br>
+          ones += mul; // add one extra cycle <br>
+        } else if (digit === 1) { <br>
+            ones += (n % mul) + 1; // incomplete cycle <br>
+        }
     </p>
 
     <p>Put together, our logic looks like this:</p>
 
-    <p>
-      let n = 236; let strings = n.toString().split(""); // ["2", "3", "6"] let
-      ints = strings.map((s) => parseInt(s)); // [2, 3, 6] let digits =
-      ints.reverse(); // [6, 3, 2] let sum = 0; digits.forEach((digit, i) => {
-      let mul = Math.pow(10, i); let cycles = Math.floor(n / (mul * 10)); let
-      ones = cycles * mul; if (digit > 1) { ones += mul; // add one extra cycle
-      } else if (digit === 1) { ones += (n % mul) + 1; // incomplete cycle } sum
-      += ones; }); console.log(sum); // 154
+    <p class="num-el">
+      let n = 236; <br>
+      let strings = n.toString().split(""); // ["2", "3", "6"] <br>
+      let ints = strings.map((s) => parseInt(s)); // [2, 3, 6] <br>
+      let digits = ints.reverse(); // [6, 3, 2] <br>
+      let sum = 0; <br>
+        <br>
+      digits.forEach((digit, i) => {<br>
+          let mul = Math.pow(10, i); <br>
+         let cycles = Math.floor(n / (mul * 10)); <br>
+          let ones = cycles * mul; <br>
+      <br>
+      if (digit > 1) { <br>
+           ones += mul; // add one extra cycle <br>
+      } else if (digit === 1) {
+          ones += (n % mul) + 1; // incomplete cycle <br>
+        } sum += ones; <br>
+        <br>
+
+    }); <br>
+    <br>
+    console.log(sum); // 154
     </p>
 
     <p>
@@ -247,38 +271,53 @@
       reduce() to accumulate the sum:
     </p>
 
-    <p>
-      function numberOfOnes(n) { return n .toString() .split("") .map((char) =>
-      parseInt(char)) .reverse() .reduce((sum, digit, i) => { const mul =
-      Math.pow(10, i); sum += Math.floor(n / (mul * 10)) * mul; if (digit > 1) {
-      sum += mul; } else if (digit === 1) { sum += (n % mul) + 1; } return sum;
-      }, 0); }
+    <p class="num-el">
+      function numberOfOnes(n) { <br>
+          return n <br>
+          .toString()  <br>
+          .split("") <br>
+          .map((char) => parseInt(char)) <br>
+          .reverse() <br>
+         .reduce((sum, digit, i) => { <br>
+            const mul = Math.pow(10, i); <br>
+      sum += Math.floor(n / (mul * 10)) * mul; <br>
+      if (digit > 1) {<br>
+      sum += mul; <br>
+        } else if (digit === 1) {<br>
+        sum += (n % mul) + 1; <br>
+<br>
+        } return sum;<br>
+<br>
+      }, 0); <br>
+    }
     </p>
 
     <p>Here are some examples:</p>
 
-    <p>
+    <p class="num-el">
       console.log(numberOfOnes(14)); // 7 console.log(numberOfOnes(236)); // 154
       console.log(numberOfOnes(420)); // 192 console.log(numberOfOnes(1337)); //
       812 console.log(numberOfOnes(65536)); // 36714
     </p>
 
-    <p>
-      Play around with the code on CodePen! Also, make sure to subscribe to
-      rendezvous with cassidoo for similar puzzles and useful web development
-      content.
+    <p id="summary">
+      Play around with the code on <span class="text-link"> CodePen</span>! <br>
+      <br>
+      Also, make sure to subscribe to <span class="text-link"> rendezvous with cassidoo</span> for similar puzzles and useful web development content.
     </p>
 
-    <p>// ----------------------------------------</p>
+    <!-- <p>// ----------------------------------------</p> -->
+    </main>
 
-    <nav>
-      <a href="#" target="_blank">GitHub</a>
-      <a href="#" target="_blank">Twitter</a>
-      <a href="#" target="_blank">LinkedIn</a>
-      <a href="#" target="_blank">Instagram</a>
+    <footer>
+        <nav class="social-link">
+      <a href="#" target="_blank" class="text-link">GitHub</a> <span></span>
+      <a href="#" target="_blank" class="text-link">Twitter</a> <span></span>
+      <a href="#" target="_blank" class="text-link">LinkedIn</a> <span></span>
+      <a href="#" target="_blank" class="text-link">Instagram</a>
     </nav>
 
-    <a href="" target="_blank">Monokai <span class="link">↓</span></a>
-    </main>
+    <a href="" target="_blank" class="monokai">Monokai <span class="text-link">↓</span></a>
+    </footer>
   </body>
 </html>
