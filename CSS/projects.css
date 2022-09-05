@@ -10,6 +10,7 @@
     --subheading-color: #cfcfc2;
     --hr-color: #88846f;
     --numberColor: #90908a;
+    --nav: #34352f;
 }
 *, *::before, *::after{
     box-sizing: border-box;
@@ -56,30 +57,28 @@ ol li::before{
     content: counter(counter);
     
 }
-header{
-    font-size: 13px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--body-bg-color);
-}
-header ul{
-    list-style: none;
+header {
+    background-color:var(--body-bg-color) ;
+  }
+  nav {
+    width: 50%;
     display: flex;
-}
-header ul li{
-    padding: 8px;
-    min-width: 120px;
-    border-left: 1px solid var(--body-bg-color);
-}
-header .home, header .blog{
-    color: #ccccc7;
-    background-color: var(--header-bg);
-}
-header .projects{
-    background-color: var(--container-bg);
-}
-header a{
+    justify-content: space-between;
+  }
+  nav a {
+    width: 100%;
+    padding: 10px 10px;
     text-decoration: none;
-}
+    color: var(--textColor);
+    background-color: var(--nav);
+    border-right: 2px solid var(--container-bg);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  a.active {
+    background-color: var(--container-bg);
+    color: var(--headingColor);
+  }
 .text{
     padding-inline: 8ch;
     padding-top: 3ch;
@@ -173,8 +172,8 @@ footer .style-options select option:hover{
     .container{
         margin-top: 0;
     }
-    header ul li{
-        min-width: 25%;
+    nav{
+        width: 70%;
     }
     .text{
         padding-left: 5ch;
