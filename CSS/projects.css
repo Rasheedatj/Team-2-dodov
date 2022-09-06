@@ -11,6 +11,7 @@
     --hr-color: #88846f;
     --numberColor: #90908a;
     --nav: #34352f;
+    --dateColor: #66665e;
 }
 *, *::before, *::after{
     box-sizing: border-box;
@@ -122,26 +123,25 @@ header {
 .img-box img{
     width: 98px;
 }
-.footer-separator{
-    display: flex;
-    align-items: center;
-    color: var(--hr-color);
-}
-.footer-separator hr{
-    
-    display: inline;
-    border: 1px dashed;
-    margin: 24px 0;
-    overflow: hidden;
-    width: 100%;
-}
-
-.footer-separator::before{
-    content: '//';
-    display: inline;
-    margin-right: 1ch;
-    font-size: 20px;
-}
+.slash {
+    position: relative;
+    margin-top: 1em;
+    margin-bottom: 5em;
+  }
+  .slash::before {
+    content: "//";
+    position: absolute;
+    color: var(--dateColor);
+    font-size: 25px;
+  }
+  .slash::after {
+    content: "--------------------------------------------------------------";
+    position: absolute;
+    color: var(--dateColor);
+    font-size: 30px;
+    right: 0;
+    font-family: "Times New Roman", Times, serif;
+  }
 footer{
     display: flex;
     justify-content: space-between;
@@ -230,5 +230,14 @@ footer .style-options select option:hover{
     }
     ol .hide{
         display: block;
+      }
+      .slash::after {
+        content: "---------------------------------------------";
+        position: absolute;
+        color: var(--dateColor);
+        font-size: 23px;
+        
+        font-family: "Times New Roman", Times, serif;
+        
       }
 }
