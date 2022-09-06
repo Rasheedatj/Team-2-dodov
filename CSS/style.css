@@ -54,6 +54,7 @@ nav a {
   text-decoration: none;
   color: var(--textColor);
   background-color: var(--nav);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   border-right: 2px solid var(--defaultContainer);
 }
 
@@ -173,31 +174,16 @@ ol li::before{
   margin-bottom: 7px;
   font-family: "Fira Code", monospace;
 }
-.image1 {
-  background-image: url(../IMG/number-of-ones-cover-342x.png);
-  background-size: cover;
-  background-position: center;
+
+.image1{
+  width: 100%;
+  height: auto;
+}
+.image{
   width: 30%;
-  height: 120px;
-  background-repeat: no-repeat;
 }
 
-.image2 {
-  background-image: url(../IMG/rm-rf-git-cover-342x.png);
-  background-size: cover;
-  background-position: center;
-  width: 30%;
-  height: 120px;
-  background-repeat: no-repeat;
-}
-.image3 {
-  background-image: url(../IMG/browser-edge-cache-cover-342x.png);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 30%;
-  height: 120px;
-}
+
 .article .side_text .heading {
   align-self: flex-start;
 }
@@ -226,6 +212,11 @@ ol li::before{
   display: flex;
   flex-direction: column;
   gap: 1em;
+}
+.projects h1 {
+  font-size: var(--continueFont);
+  color: var(--headingColor);
+  text-transform: capitalize;
 }
 .projects .box {
   display: flex;

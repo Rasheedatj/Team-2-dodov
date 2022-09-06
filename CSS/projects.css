@@ -9,6 +9,9 @@
     --text-white: #E4E4DE;
     --subheading-color: #cfcfc2;
     --hr-color: #88846f;
+    --numberColor: #90908a;
+    --nav: #34352f;
+    --dateColor: #66665e;
 }
 *, *::before, *::after{
     box-sizing: border-box;
@@ -25,42 +28,58 @@ a{
 }
 .container{
     max-width: 850px;
+    /* height: 200vh; */
     margin: 0 auto;
     margin-top: 5%;
     background-color: var(--container-bg);
     padding-bottom: 40%;
     overflow: hidden;
+    position: relative;
 }
-.light{
-    background-color: #fff;
+/* numbering style */
+ol{
+    position: absolute;
+    line-height: 1.6;
+    color: var(--numberColor);
+   list-style: none;
+   counter-reset: counter;
+   left: 3%;
+    top: 6%;
 }
-/* navigation bar style */
-header{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--body-bg-color);
+ol .hide{
+  display: none;
 }
-header ul{
-    list-style: none;
-    display: flex;
-    width: 50%;
-}
-header ul li{
-    padding: 10px;
-    width: 100%;
-    border-right: 2px solid var(--body-bg-color);
-}
-header .home, header .blog{
-    color: #ccccc7;
-    background-color: var(--header-bg);
-}
-header .projects{
-    background-color: var(--container-bg);
-}
-header a{
-    text-decoration: none;
+li{
+    text-align: right;
 }
 
-/* page content style */
+ol li::before{
+    counter-increment: counter;
+    content: counter(counter);
+    
+}
+header {
+    background-color:var(--body-bg-color) ;
+  }
+  nav {
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+  }
+  nav a {
+    width: 100%;
+    padding: 10px 10px;
+    text-decoration: none;
+    color: var(--textColor);
+    background-color: var(--nav);
+    border-right: 2px solid var(--container-bg);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  a.active {
+    background-color: var(--container-bg);
+    color: var(--headingColor);
+  }
 .text{
     padding-inline: 8ch;
     padding-top: 3ch;
@@ -104,88 +123,115 @@ header a{
 .img-box img{
     width: 98px;
 }
-.footer-separator{
-    display: flex;
-    align-items: center;
-    color: var(--hr-color);
-}
-.footer-separator hr{
-   border-width: 0;
-   margin: 24px 0;
-   /* width: 100%; */
-}
-.footer-separator::before{
-    content: '//';
-    display: inline;
-    margin-right: 1ch;
-    color: var(--hr-color);
-}
-.footer-separator::after {
-    content: "-------------------------------------------------------------------------";
-    color: var(--hr-color);
+.slash {
+    position: relative;
+    margin-top: 1em;
+    margin-bottom: 5em;
+  }
+  .slash::before {
+    content: "//";
+    position: absolute;
+    color: var(--dateColor);
+    font-size: 25px;
+  }
+  .slash::after {
+    content: "--------------------------------------------------------------";
+    position: absolute;
+    color: var(--dateColor);
+    font-size: 30px;
     right: 0;
     font-family: "Times New Roman", Times, serif;
-    letter-spacing: 2.5px;
-    font-size: 20px;
-    white-space: nowrap;
-    overflow: hidden;
-}
-
-/* footer style */
+  }
 footer{
     display: flex;
     justify-content: space-between;
-    margin: 24px 0;
 }
-footer .socials ul{
+/* footer */
+footer {
     display: flex;
-    flex-flow: row wrap;
-    gap: 10px;
-    list-style: none;
-    justify-content: space-between;
-}
-footer .style-options{
-    white-space: nowrap;
+  }
+  
+  footer .links {
+    display: flex;
+    gap: 2em;
+    width: 70%;
+  }
+  footer .mode {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    width: 30%;
+    align-items: center;
+    margin-top: 7px;
+    align-self: flex-start;
+  }
+  footer .dot {
+    display: flex;
+    gap: 6px;
+  }
+  footer .fa-circle {
+    margin-top: 12px;
+    font-size: 5px;
+    color: var(--green-link);
+  }
+  footer a:hover {
+    color: var(--link-hover);
+  }
+  .dot:hover .fa-circle {
+    color: var(--link-hover);
+  }
+   .neon {
+    text-decoration: none;
+    color: var(--green-link);
+    font-size: 18px;
+    padding-bottom: 1.1em;
     position: relative;
-}
-footer .style-options select{
-    background-color: inherit;
-    font-family: inherit;
-    font-size: inherit;
-    color: var(--heading-white);
+  }
+   .neon::after {
+    content: "";
+    position: absolute;
+    top: 1em;
+    bottom: 1em;
+    left: 0;
+    right: 0;
+    border-bottom: 2px solid var(--green-link);
+  }
+   .neon:hover::after {
+    border-bottom: 2px solid var(--link-hover);
+  }
+
+  .mode select {
     border: none;
-    font-weight: 500;
+    background-color: transparent;
+    color: var(--headingColor);
+    font-size: 20px;
+    text-transform: capitalize;
+    font-weight: 300;
+    outline: none;
+    display: flex;
+    justify-content: flex-end;
     -webkit-appearance: none;
     -moz-appearance: none;
-    outline: none;
     text-indent: 1px;
     text-overflow: '';
     cursor: pointer;
-}
-footer .style-options select option{
-    background-color: #1E1F1C;
-}
-.selected{
-    text-align: right;
-}
-.style-options:hover select, .style-options:hover .arrow-down{
-    color: #4e94ce;
-}
-.style-options:hover option{
-    color: var(--text-white);
-}
-.style-options .arrow-down{
-    color: var(--green-link);
-    display: inline;
-    
-}
+   }
+   .mode:hover select,.mode:hover .arrow-down{
+       color: var(--linkHoverColor);
+   }
+   .mode select option{
+       background-color: black;
+   }
+   .mode:hover option{
+       color: white;
+   }
 
 @media (max-width: 600px){
     .container{
         margin-top: 0;
     }
-    header ul li{
-        min-width: 25%;
+    nav{
+        width: 70%;
     }
     .text{
         padding-left: 5ch;
@@ -209,6 +255,7 @@ footer .style-options select option{
     .title{
         display: flex;
         flex-direction: column;
+        /* justify-content: space-between; */
     }
     .title .bold-title{
         font-weight: 700;
@@ -225,18 +272,39 @@ footer .style-options select option{
     }
     .project-image2 img{
         width: 42px;
+    }   .main .neon{
+        font-size: 16px;
     }
+    .main .neon::after {
+     
+     border-bottom: 1px solid var(--defaultLinkColor);
+   }
     footer{
+        margin-top: 5em;
         flex-direction: column;
-        gap: 24px;
+        gap: 1em;
     }
-    footer .socials ul{
+    footer .links{
+        flex-direction: column;
+        gap: .5em;
+    }
+    footer .dot{
         display: block;
     }
-    footer .socials ul .dot{
+    
+    footer .fa-circle{
         display: none;
     }
-    footer .style-options select{
-        font-size: 14px;
+    footer .mode{
+        justify-content: flex-start;
     }
+      .slash::after {
+        content: "--------------------------------------";
+        position: absolute;
+        color: var(--dateColor);
+        font-size: 23px;
+        
+        font-family: "Times New Roman", Times, serif;
+        
+      }
 }
