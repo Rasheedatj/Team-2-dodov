@@ -38,32 +38,29 @@ a{
     overflow: hidden;
 }
 
-/* navigation bar style */
-header{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+/* Menu styling */
+header {
     background-color: var(--body-bg-color);
-}
-header ul{
-    list-style: none;
+  }
+  nav {
+    width: 50%;
     display: flex;
-    width: 80%;
-}
-header ul li{
-    padding: 10px;
+    justify-content: space-between;
+  }
+  nav a {
     width: 100%;
-    border-right: 2px solid var(--body-bg-color);
-    white-space: nowrap;
-}
-header .home, header .blog, header .projects {
-    color: #ccccc7;
-    background-color: var(--header-bg);
-}
-header .blog{
-    background-color: var(--container-bg);
-}
-header a{
+    padding: 10px 10px;
     text-decoration: none;
-}
+    color: var(--textColor);
+    background-color: var(--header-bg);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-right: 2px solid var(--container-bg);
+  }
+  
+  a.active {
+    background-color: var(--container-bg);
+    color: var(--heading-white);
+  }
 
 /* main content styling */
 .text{
@@ -161,28 +158,82 @@ img{
 }
 
 /* footer style */
-footer{
+/* footer */
+footer {
     display: flex;
-    justify-content: space-between;
-}
-footer .socials ul{
+  }
+  
+  footer .links {
     display: flex;
-    flex-flow: row wrap;
-    gap: 10px;
-    list-style: none;
-    justify-content: space-between;
-}
-footer .style-options select{
-    background-color: inherit;
-    font-family: inherit;
-    color: inherit;
+    gap: 2em;
+    width: 70%;
+  }
+  footer .mode {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    width: 30%;
+    align-items: center;
+    margin-top: 7px;
+    align-self: flex-start;
+  }
+  footer .dot {
+    display: flex;
+    gap: 6px;
+  }
+  footer .fa-circle {
+    margin-top: 12px;
+    font-size: 5px;
+    color: var(--green-link);
+  }
+  footer a:hover {
+    color: var(--link-hover);
+  }
+  .dot:hover .fa-circle {
+    color: var(--link-hover);
+  }
+   .neon {
+    text-decoration: none;
+    color: var(--green-link);
+    font-size: 18px;
+    padding-bottom: 1.1em;
+    position: relative;
+  }
+   .neon::after {
+    content: "";
+    position: absolute;
+    top: 1em;
+    bottom: 1em;
+    left: 0;
+    right: 0;
+    border-bottom: 2px solid var(--green-link);
+  }
+   .neon:hover::after {
+    border-bottom: 2px solid var(--link-hover);
+  }
+
+  .mode select {
     border: none;
-    font-weight: 500;
-    /* outline: none; */
-}
-footer .style-options select option{
-    background-color: #1E1F1C;
-}
-footer .style-options select option:hover{
-    background-color: #4e94ce;
-}
+    background-color: transparent;
+    color: var(--headingColor);
+    font-size: 20px;
+    text-transform: capitalize;
+    font-weight: 300;
+    outline: none;
+    display: flex;
+    justify-content: flex-end;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+    cursor: pointer;
+   }
+   .mode:hover select,.mode:hover .arrow-down{
+       color: var(--linkHoverColor);
+   }
+   .mode select option{
+       background-color: black;
+   }
+   .mode:hover option{
+       color: white;
+   }
