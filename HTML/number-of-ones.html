@@ -9,14 +9,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="CSS/dont-build.css.css">
   </head>
   <body>
       <header>
             <nav class="head">
-              <a href="#">home</a>
-              <a href="#">blog</a>
-              <a href="#" class="nav3">number-of-ones</a>
-              <a href="#">projects</a>
+              <a href="../index.html">home</a>
+              <a href="./blog.html">blog</a>
+              <a href="./number-of-ones.html" class="nav3">number-of-ones</a>
+              <a href="./projects.html">projects</a>
           </nav>    
       </header>
       <main>
@@ -35,9 +36,13 @@
       >'s newsletter.
     </p>
     <p>The task is simple:</p>
-    <p  class="faded">
-      > Given an integer n, count the total number of 1 digits appearing in all non-negative integers less than or equal to n.
+
+    <pre>
+    <p  class="faded">> Given an integer n, count the total number of 1 digits 
+> appearing in all non-negative integers less than 
+> or equal to n.
     </p>
+    </pre>
 
     <p>
       Perhaps the most obvious solution is to just loop over the numbers,
@@ -80,7 +85,7 @@
     <div>
     <p>In total, the digit 1 appears 20 times in the numbers up to 99:</p>
       <p class="one-times">10 times as a digit in the units column</p>
-      <p class="one-times2">10 times as a digit in the tens column</p>
+      <p class="one-times">10 times as a digit in the tens column</p>
     </div>
 
 
@@ -143,14 +148,14 @@
 
     <div class="num-el">
       <p>
-        [6, 3, 2].forEach((digit, i) => { <br> let mul = Math.pow(10, i); // 1, 10, 100 });
+        [<span class="code-num">6</span>, <span class="code-num">3</span>, <span class="code-num">2</span>].<span class="method-color">forEach</span>((digit, i) <span class="var-color"> => </span> { <br> 
+        <span class="var-color">let</span> mul <span class="var-color">=</span> Math.<span class="method-color">pow</span>(<span class="code-num">10</span>, i); <span class="comment"> // 1, 10, 100 })</span>;
       </p>
     </div>
     <p>
-      Now, we have to be able to take digits out of the number. In our first iteration, for the units, we have to take 23 out of 236. We can do that by dividing the number by 10, getting 23.6. We can then round it down with Math.floor() to get 23. <br>
+      Now, we have to be able to take digits out of the number. In our first iteration, for the units, we have to take 23 out of <span class="code-text">236</span>. We can do that by dividing the number by 10, getting <span class="code-text">23.6</span>. We can then round it down with <span class="code-text">Math.floor()</span> to get <span class="code-text">23</span>. <br>
       <br>
-      For the tens, we have to get 2 out of 236. We can
-      do that by dividing by 100, getting 2.36, and rounding down to 2.
+      For the tens, we have to get 2 out of <span class="code-text">236</span>. We can do that by dividing by <span class="code-text">100</span>, getting <span class="code-text">2.36</span>, and rounding down to <span class="code-text">2</span>.
       <br>
       <br>
       Basically, we multiply our multiplier by 10, divide, then floor, and we have successfully taken out the necessary digits:
@@ -175,8 +180,10 @@
 
     <p>In code, we can do it like this:</p>
 
-    <p class="num-el">let cycles = Math.floor(n / (mul * 10)); <br>
-        let ones = cycles * mul;</p>
+    <p class="num-el">
+        <span class="var-color">let</span> cycles <span class="var-color">=</span> Math.<span class="function">floor</span> (n <span class="var-color">/</span> (mul <span class="var-color">*</span> <span class="code-num">10</span>)); <br>
+        <span class="var-color">let</span> ones <span class="var-color">=</span> cycles <span class="var-color">*</span> mul;
+    </p>
 
     <p>
       Now, we have to handle cases where the digit is greater than 1. That's when we have one extra cycle:
@@ -190,15 +197,15 @@
       └─ 0 < 1 => no extra cycle (we don't reach 210)
     </p>
 
-    <p>We add an extra if statement:</p>
+    <p>We add an extra <span class="code-text">if</span> statement:</p>
 
     <p class="num-el">
-      let cycles = Math.floor(n / (mul * 10)); <br>
-      let ones = cycles * mul; <br>
+      <span class="var-color">let</span> cycles <span class="var-color">=</span> Math.<span class="function">floor</span>(n <span class="var-color">/</span> (mul <span class="var-color">*</span> <span class="code-num">10</span>)); <br>
+        <span class="var-color">let</span> ones <span class="var-color">=</span> cycles <span class="var-color">*</span> mul; <br>
       <br> 
-      if
-      (digit > 1) { <br>
-          ones += mul; // add one extra cycle <br>
+      <span class="var-color">if</span>
+      (digit   <span class="var-color">></span> <span class="code-num">1</span> ) { <br>
+          ones <span class="var-color">+=</span> mul; <span class="comment">// add one extra cycle</span> <br>
         }
     </p>
 
@@ -215,7 +222,7 @@
     </p>
 
     <p>
-      We can get digits on the right by applying %, the <span class="text-link"> remainder operator</span>, to the number and the multiplier:
+      We can get digits on the right by applying <span class="code-text">%</span>, the <span class="text-link"> remainder operator</span>, to the number and the multiplier:
     </p>
 
     <p class="num-el">
@@ -231,73 +238,87 @@
       └┴───────────────────────────────── this counts as well
     </p>
 
-    <p>So we need to extend our if statement:</p>
+    <p>So we need to extend our <span class="code-text">if</span> statement:</p>
     <p class="num-el">
-      if (digit > 1) { <br>
-          ones += mul; // add one extra cycle <br>
-        } else if (digit === 1) { <br>
-            ones += (n % mul) + 1; // incomplete cycle <br>
+      <span class="var-color">if</span> (digit <span class="var-color">></span> <span class="code-num">1</span>) { <br>
+          ones <span class="var-color">+=</span> mul; <span class="comment">// add one extra cycle</span> <br>
+        } <span class="var-color">else if</span> (digit <span class="var-color"> === </span><span class="code-num">1</span>) { <br>
+            ones <span class="var-color">+=</span> (n <span class="var-color">%</span> mul) + <span class="code-num">1</span>; <span class="comment">// incomplete cycle</span> <br>
         }
     </p>
 
     <p>Put together, our logic looks like this:</p>
 
     <p class="num-el">
-      let n = 236; <br>
-      let strings = n.toString().split(""); // ["2", "3", "6"] <br>
-      let ints = strings.map((s) => parseInt(s)); // [2, 3, 6] <br>
-      let digits = ints.reverse(); // [6, 3, 2] <br>
-      let sum = 0; <br>
+      <span class="var-color">let</span> n  <span class="var-color">=</span>  <span class="code-num">236</span>; <br>
+      
+      <span class="var-color">let</span> strings <span class="var-color">=</span> n. <span class="function"> toString</span>(). <span class="function">split</span>(""); <span class="comment">// ["2", "3", "6"]</span> <br>
+
+      <span class="var-color">let</span> ints <span class="var-color">=</span> strings. <span class="function">map</span>((s) =>  <span class="function">parseInt</span>(s)); <span class="comment">// [2, 3, 6]</span> <br>
+
+      <span class="var-color">let</span> digits <span class="var-color">=</span> ints. <span class="function">reverse</span>(); <span class="comment">// [6, 3, 2]</span> <br>
+      <span class="var-color">let</span> sum <span class="var-color">=</span> 0; <br>
         <br>
-      digits.forEach((digit, i) => {<br>
-          let mul = Math.pow(10, i); <br>
-         let cycles = Math.floor(n / (mul * 10)); <br>
-          let ones = cycles * mul; <br>
+      digits. <span class="function">forEach</span>((digit, i) => {<br>
+         <span class="var-color">let</span> mul <span class="var-color">=</span> Math. <span class="function">pow</span>(10, i); <br>
+         <span class="var-color">let</span> cycles <span class="var-color">=</span> Math. <span class="function">floor</span>(n / (mul * 10)); <br>
+         <span class="var-color">let</span> ones <span class="var-color">=</span> cycles * mul; <br>
       <br>
-      if (digit > 1) { <br>
-           ones += mul; // add one extra cycle <br>
-      } else if (digit === 1) {
-          ones += (n % mul) + 1; // incomplete cycle <br>
+      <span class="var-color">if</span> (digit > 1) { <br>
+           ones += mul; <span class="comment">// add one extra cycle</span> <br>
+      } <span class="var-color">else if</span> (digit === 1) {
+          ones += (n % mul) + 1; <span class="comment">// incomplete cycle</span> <br>
         } sum += ones; <br>
         <br>
 
     }); <br>
     <br>
-    console.log(sum); // 154
+    console. <span class="function">log</span>(sum); <span class="comment">// 154</span>
     </p>
 
     <p>
       Now, we can wrap that logic in an easily reusable function and use
-      reduce() to accumulate the sum:
+      <span class="code-text text-link">reduce</span>() to accumulate the sum:
     </p>
-
+    <pre>
     <p class="num-el">
-      function numberOfOnes(n) { <br>
-          return n <br>
-          .toString()  <br>
-          .split("") <br>
-          .map((char) => parseInt(char)) <br>
-          .reverse() <br>
-         .reduce((sum, digit, i) => { <br>
-            const mul = Math.pow(10, i); <br>
-      sum += Math.floor(n / (mul * 10)) * mul; <br>
-      if (digit > 1) {<br>
-      sum += mul; <br>
-        } else if (digit === 1) {<br>
-        sum += (n % mul) + 1; <br>
+      <span class="var-color">function</span> <span class="function">numberOfOnes(n)</span> { <br>
+         <span class="var-color">return</span> n <br>
+          .<span class="function">toString</span>()  <br>
+          .<span class="function">split</span>(<span class="code-num">""</span>) <br>
+          .<span class="function">map</span>((char) <span class="var-color"> => </span> <span class="function">parseInt</span>(char)) <br>
+          .<span class="function">reverse</span>() <br>
+          .<span class="function">reduce</span> ((sum, digit, i) <span class="var-color"> => </span> { <br>
+            <span class="var-color">const</span> mul <span class="var-color">=</span> Math.<span class="function">pow</span>(<span class="code-num">10</span>, i); <br> 
+
+      sum <span class="var-color">+=</span> Math.floor(n <span class="var-color">/</span>
+       (mul <span class="var-color">*</span> <span class="code-num">10</span>)) <span class="var-color">*</span> mul; <br>
+
+      <span class="var-color">if</span> (digit <span class="var-color">></span> <span class="code-num">1</span> {
+                     sum <span class="var-color">+=</span> mul; <br>
+            } <span class="var-color">else if</span> (digit <span class="var-color">===</span> <span class="code-num">1</span>) { <br>
+        sum <span class="var-color">+=</span> (n <span class="var-color">%</span> mul) <span class="var-color">+</span> <span class="code-num">1</span>; <br>
 <br>
-        } return sum;<br>
-<br>
-      }, 0); <br>
+        } <span class="var-color">return</span> sum;<br>
+      }, <span class="code-num">0</span>); <br>
     }
+    
+    </p>
+    </pre>
+
+    <p id="example-para"> Here are some examples:
     </p>
 
-    <p>Here are some examples:</p>
-
     <p class="num-el">
-      console.log(numberOfOnes(14)); // 7 console.log(numberOfOnes(236)); // 154
-      console.log(numberOfOnes(420)); // 192 console.log(numberOfOnes(1337)); //
-      812 console.log(numberOfOnes(65536)); // 36714
+      console.<span class="function">log</span>(<span class="function">numberOfOnes</span>(<span class="code-num">14</span>)); <span class="comment"> // 7</span> <br>
+
+      console.<span class="function">log</span>(<span class="function">numberOfOnes</span>(236)); <span class="comment"> // 154 </span> <br>
+
+      console.<span class="function">log</span>(<span class="function">numberOfOnes</span>(420));<span class="comment">// 192</span> <br>
+
+      console.<span class="function">log</span>(<span class="function">numberOfOnes</span>(1337)) <span class="comment"> //812 </span> <br> 
+
+      console.<span class="function">log</span>(<span class="function">numberOfOnes</span>(65536)); <span class="comment">  // 36714</span>
     </p>
 
     <p id="summary">
@@ -305,7 +326,6 @@
       <br>
       Also, make sure to subscribe to <span class="text-link"> rendezvous with cassidoo</span> for similar puzzles and useful web development content.
     </p>
-
     <!-- <p>// ----------------------------------------</p> -->
     </main>
 
