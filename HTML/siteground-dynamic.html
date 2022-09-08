@@ -5,9 +5,159 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../CSS/siteground-dynamic.css">
-    <title>Document</title>
+    <link id="favicon" href="https://dodov.dev/media/site/d0298ef0fd-1614418428/favicon-monokai.png" rel="icon" type="image/png">
+    <title>Fixing SiteGround Dynamic Cache Issues</title>
 </head>
 <body>
+
+    <div class="main_container">
+
+        <header>
+            <a href="../index.html">home</a>
+            <a href="blog.html">blog</a>
+            <a href="">
+                <em>Fixing SiteGround Dynamic Cache Issues</em>  
+                <a href="blog.html">&#9747;</a>
+            </a>
+            <a href="projects.html">projects</a>
+        </header>   
+
+
+        <div class="container">
+            <div class="numbers">
+
+            </div>
+
+            <div class="text">
+                <div class="title">
+                    <div class="left">
+                        <p class="heading">Fixing SiteGround Dynamic Cache Issues</p>
+                        <p class="subheading">That's what you get for not using WordPress…</p>
+                    </div>
+                    <div class="right">
+                       <p>12 Jan 2022
+                        <br>100 lines
+                       </p>
+                    </div>
+                </div>
+
+                <div class="browser-image">
+                    <img src="https://dodov.dev/media/pages/blog/fixing-siteground-dynamic-cache-issues/adf04a2e0b-1642745720/siteground-random-characters-cover-1280x.png" alt="">
+                </div>
+
+                <section class="below-image">
+                    <p>
+                        If your website is hosted on SiteGround and you have strange issues, such as clicking on a button and nothing happening, it could be a cache issue. By default, SiteGround caches all requests, as they've said in <a href="" class="green-underline">their help center article</a>:
+                    </p>
+                    <ul class="symbol-list">
+                        <li>Our Dynamic caching is a full-page caching mechanism powered</li>
+                        <li>by NGINX that's enabled and running by default on all</li>
+                        <li>SiteGround servers.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <p>
+                        The problem is that everything is cached, including the raw HTML of your pages and AJAX requests made by either your front-end, admin panel, or whatever. There also appears to be no way to simply turn off this functionality.
+                    </p>
+                </section>
+
+                <section>
+                    <p>
+                        In my case, I'm using Kirby CMS and this aggressive caching means that if I change the status of a blog post from Draft to Public, it actually happens at a filesystem level, but since the HTML of the blog is cached, the article doesn't appear. Because AJAX requests are also cached, the Kirby panel front-end isn't updated as well, leaving no indication that something actually happened.
+                    </p>
+                </section>
+
+                <section>
+                    <p>
+                        SiteGround has built-in exceptions for the cache. For example, if a visitor has the wordpress_logged_in_ or Drupal.visitor.name cookie, they'll bypass the cache and see all changes they make immediately. However, if you're using something other than WordPress or Drupal, like me, you're screwed.
+                    </p>
+                </section>
+
+                <section>
+                    <p>
+                        Luckily, SiteGround respects Cache-Control headers that your server sends. You can turn off the cache entirely by adding the following in your main index.php file:
+                    </p>
+                </section>
+
+                <section>
+                    header('Cache-Control: no-cache');
+                </section>
+
+                <section>
+                    <p>
+                        Alternatively, in case of using Kirby, you could disable it for just the panel by matching the request path with regex:
+                    </p>
+                </section>
+
+                <section>
+                    if (preg_match('~^/(panel|api)(/|\?|$)~', $_SERVER['REQUEST_URI'])) {
+                        header('Cache-Control: no-cache');
+                    }
+                </section>
+
+                <section>
+                    <p>
+                        You can check if this works by inspecting the response headers and looking for the x-proxy-cache header. It tells whether the response was served by the cache or not. If you see the following, the response was not cached:
+                    </p>
+                </section>
+
+                <section>
+                    x-proxy-cache: MISS
+                </section>
+
+                <section>
+                    <p>
+                        <strong>Handling Cloudflare Cache</strong>
+                    </p>
+                    <p>
+                        Things can be even more confusing if you use Cloudflare, due to its own caching functionality. It has to be enabled explicitly and only caches static files by default, so it has less unpleasant surprises. In my opinion, it doesn't make much sense to have both caches enabled, so you should probably disable one or the other. You can determine the Cloudflare cache status by looking at the cf-cache-status header.
+                    </p>
+                    <p>
+                        The response is cached by Cloudflare if you have these headers:
+                    </p>
+                </section>
+
+                <section>
+                    cf-cache-status: HIT <br>
+                    x-proxy-cache: MISS
+                </section>
+
+                <section>
+                    <p>
+                        …and you get these headers if it's cached by SiteGround instead:
+                    </p>
+                </section>
+
+                <section>
+                    cf-cache-status: DYNAMIC <br>
+                    x-proxy-cache: HIT
+                </section>
+
+            </div>
+        </div>
+
+        <div class="footer_line">
+            <hr>
+        </div>
+
+        <footer>
+            <div class="socials">
+                <ul>
+                    <li><a href="" class="green-underline">GitHub</a></li>
+                    <li class="dot">•</li>
+                    <li><a href="" class="green-underline">Twitter</a></li>
+                    <li class="dot">•</li>
+                    <li><a href="" class="green-underline">LinkedIn</a></li>
+                    <li class="dot">•</li>
+                    <li><a href="" class="green-underline">Instagram</a></li>
+                </ul>
+            </div>
+        </footer>
+
+
+
+    </div>
     
 </body>
 </html>

@@ -1,0 +1,347 @@
+@media screen and (max-width:600px){
+    .container{
+        margin: 0;
+        width: 100%;
+        
+    }
+    ol{
+     top: 2.5%;
+     line-height: 1.455;
+     }
+ ol .hide{
+     display: block;
+     }
+     ol .hide6{
+         display: none;
+     }
+ 
+    nav{
+        width: 70%;
+    }
+    .main .neon{
+        font-size: 16px;
+    }
+    .main .neon::after {
+     
+     border-bottom: 1px solid var(--defaultLinkColor);
+   }
+    footer{
+        margin-top: 5em;
+        flex-direction: column;
+        gap: 1em;
+    }
+    footer .links{
+        flex-direction: column;
+        gap: .5em;
+    }
+    footer .dot{
+        display: block;
+    }
+    
+    footer .fa-circle{
+        display: none;
+    }
+    footer .mode{
+        justify-content: flex-start;
+    }
+    .main{
+        padding: 2em;
+        padding-left: 4em;
+        padding-right: 8em;
+    }
+   
+    .about_dodov{
+        gap: .8em;
+    }
+    .about_dodov .side_text{
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .about_dodov .description{
+        margin-left: -50%;
+        margin-top: 2em;
+    }
+    .about_dodov .image{
+        background-position: top;
+    }
+    .about_dodov .heading h1{
+        font-size: 18px;
+        margin-bottom: 0;
+    }
+    .about_dodov .heading .title{
+        font-size: 14px;
+        margin-top: 35px;
+    }
+    .latest_articles{
+        gap: 1.7em;
+    }
+    .latest_articles .article{
+        flex-direction: column;
+        gap: .8em;
+    }
+   .latest_articles .sup_header{
+       font-size: 17px;
+   }
+    .latest_articles .image{
+        width: 100%;
+        height: 200px;
+        background-size: contain;
+        background-position: left;
+    }
+    
+    .latest_articles .side_text{
+        width: 100%;
+    }
+    
+    .article .side_text p{
+     font-size: 14px;
+ }
+     .article .heading .grayLink{
+         font-size: 17px;
+     }
+    .continue {
+        width: 50%;
+    }
+    .continue a{
+        font-size: 16px;
+    }
+    .slash{
+        margin-bottom: 3.3em;
+    }
+    .slash::after {
+     content: "---------------------------------------------";
+     position: absolute;
+     color: var(--dateColor);
+     font-size: 23px;
+     
+     font-family: "Times New Roman", Times, serif;
+     
+   }
+   .slash::before {
+     content: "//";
+     position: absolute;
+     color: var(--dateColor);
+     font-size: 18px;
+   }
+     .projects{
+         margin-top: 5em;
+     }
+     .projects h1{
+         font-size: 17px;
+     }
+    .projects .side_text{
+        display: flex;
+      flex-wrap: wrap;
+       
+    }
+    .projects .side_text .a{
+        order: 1;
+        width: 100%;
+        font-size: 17px;
+    }
+    .projects .side_text .neon{
+        order: 2;
+        font-size: 14px;
+    }
+    .projects .side_text p{
+        order: 3;
+     font-size: 14px;
+        margin-left: -25%;
+        margin-top: .5em;
+    }
+    .projects .nexo_img, .projects .rundown_img{
+     width: 250px;
+     height: 60px;
+     background-size: contain;
+     background-position: left;
+    }
+    .projects .box{
+        gap: 0;
+    }
+    .mode select{
+        font-size: 15px;
+    }
+ }
+
+ @media screen and (max-width:540px) {
+    .slash::after {
+        content: "----------------------------------------";
+        position: absolute;
+        color: var(--dateColor);
+        font-size: 23px;
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      ol{
+        top: 2.5%;
+        line-height: 1.52;
+        }
+ }
+@media screen and (max-width:420px){
+   .container{
+       margin: 0;
+       width: 100%;
+       
+   }
+   ol{
+    top: 2.5%;
+    line-height: 1.383;
+    }
+ol .hide{
+    display: block;
+    }
+
+   nav{
+       width: 70%;
+   }
+   .main .neon{
+       font-size: 16px;
+   }
+   .main .neon::after {
+    
+    border-bottom: 1px solid var(--defaultLinkColor);
+  }
+   footer{
+       margin-top: 5em;
+       flex-direction: column;
+       gap: 1em;
+   }
+   footer .links{
+       flex-direction: column;
+       gap: .5em;
+   }
+   footer .dot{
+       display: block;
+   }
+   
+   footer .fa-circle{
+       display: none;
+   }
+   footer .mode{
+       justify-content: flex-start;
+   }
+   .main{
+       padding: 2em;
+       padding-left: 3em;
+   }
+  
+   .about_dodov{
+       gap: .8em;
+   }
+   .about_dodov .side_text{
+       flex-direction: row;
+       flex-wrap: wrap;
+   }
+   .about_dodov .description{
+       margin-left: -50%;
+       margin-top: 1.5em;
+   }
+   .about_dodov .image{
+       background-position: top;
+   }
+   .about_dodov .heading h1{
+       font-size: 18px;
+       margin-bottom: 0;
+   }
+   .about_dodov .heading .title{
+       font-size: 14px;
+       margin-top: 20px;
+   }
+   .latest_articles{
+       gap: 0;
+   }
+   .latest_articles .article{
+       flex-direction: column;
+       gap: 0;
+   }
+  .latest_articles .sup_header{
+      font-size: 17px;
+  }
+   .latest_articles .image{
+       width: 100%;
+       height: 200px;
+       background-size: contain;
+   }
+   
+   .latest_articles .side_text{
+       width: 100%;
+   }
+   
+   .article .side_text p{
+    font-size: 14px;
+}
+    .article .heading .grayLink{
+        font-size: 17px;
+    }
+   .continue {
+       width: 50%;
+   }
+   .continue a{
+       font-size: 16px;
+   }
+   .slash{
+       margin-bottom: 3.3em;
+   }
+   .slash::after {
+    content: "------------------------------------";
+    position: absolute;
+    color: var(--dateColor);
+    font-size: 23px;
+    
+    font-family: "Times New Roman", Times, serif;
+    
+  }
+  .slash::before {
+    content: "//";
+    position: absolute;
+    color: var(--dateColor);
+    font-size: 18px;
+  }
+    .projects{
+        margin-top: 5em;
+    }
+    .projects .box{
+        gap: 1em;
+    }
+    .projects h1{
+        font-size: 17px;
+    }
+   .projects .side_text{
+       display: flex;
+     flex-wrap: wrap;
+      
+   }
+   .projects .side_text .a{
+       order: 1;
+       width: 100%;
+       font-size: 17px;
+   }
+   .projects .side_text .neon{
+       order: 2;
+       font-size: 14px;
+       padding-top: 10px;
+   }
+   .projects .side_text p{
+       order: 3;
+    font-size: 14px;
+       margin-left: -31%;
+       margin-top: .5em;
+   }
+   
+   .projects .side_text1 p{
+       order: 3;
+    font-size: 14px;
+       margin-left: -34%;
+       margin-top: .5em;
+   }
+   
+   .projects .nexo_img, .projects .rundown_img{
+    width: 250px;
+    height: 60px;
+    background-size: contain;
+    background-position: left;
+   }
+   .mode select{
+       font-size: 15px;
+   }
+}

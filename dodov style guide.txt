@@ -1,0 +1,19 @@
+# colors
+
+body: #1e1f1c
+container: #272822
+inactive nav : #34352f
+text: #f8f8f2
+full-stack dev text : #cfcfc2
+date text : #66665e
+monkai : #a6e22e
+numbers : #90908a
+hover color : #4e94ce
+
+# font
+Fira-code
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet"/>
+
+font-family: 'Fira Code', monospace;
