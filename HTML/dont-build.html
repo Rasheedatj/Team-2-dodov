@@ -248,10 +248,12 @@
                         and had smooth animations and interactions. I looked at 
                         <a href="https://getuikit.com/docs/introduction" class="out-link">UIkit</a>, 
                         but I didn't pick it for two reasons:</p>
-                    <p>
-                        It had its own opinion on design
-                    It didn't meet my requirements for "smoothness"
-                    </p>
+                    
+                        <div class="it">
+                            <p>It had its own opinion on design</p>
+                            <p class="its">It didn't meet my requirements for "smoothness"</p>
+                        </div>
+                   
                     <p>This lead me to search for other frameworks that, unlike UIkit, 
                         provide just the basic JavaScript functionality, allowing you to style and animate as 
                         you wish. I didn't find anything. So, naturally, I decided to make <a href="https://github.com/OblikStudio/toolkit" class="out-link">
@@ -340,6 +342,17 @@
                             soon as you can. As David Heinemeier Hansson said on episode <a class="out-link" href="https://www.rework.fm/launch-now/">"Launch Now" 
                                 of the Rework podcast</a>:
                         </p>
+
+                        <blockquote>
+                            <div class="wrapper">
+                            <p data-id="paragraph-c4e9">If you're not uncomfortable by the time you're launching, 
+                                it's way too late.</p>
+                            </div>
+                            </blockquote>
+
+        
+                           
+                        
                         <p>
                             I never really launched my side project. It wasn't "ready". At the same time, it
                              became a bigger and bigger dependency in our main projects. That's an issue,
@@ -365,11 +378,12 @@
                         <h3>Conclusion</h3>
                         <p>
                             I will archive my project. These problems have already been solved by 
-                            many people, many times. We all know that every day, a new JavaScript 
-                            framework is born. This happens because people like me think they've got
+                            many people, many times. We all know that 
+                            <a href="https://dayssincelastjavascriptframework.com/" class="out-link">every day, a new JavaScript 
+                                framework is born</a>. This happens because people like me think they've got
                              the silver bullet and can solve a certain problem once and for all. But
-                              that's impossible and delusional. It's like that xkcd comic about 
-                              standards:
+                              that's impossible and delusional. It's like that 
+                              <a href="https://xkcd.com/927/" class="out-link">xkcd comic about standards</a>:
                         </p>
                         <img src="../IMG/standards.png" alt="">
                         <p>
@@ -422,6 +436,18 @@
             document.getElementById('theme-select').addEventListener('change', function() {
             setTheme(this.value);
             });
+
+        const getTheme = () => {
+            const theme = localStorage.getItem('theme');
+            theme && setTheme(theme);
+        }
+ 
+    getTheme();
+
+    //         const setTheme = (theme) => {
+    // document.documentElement.className = theme;
+    // localStorage.setItem('theme', theme);
+    // }
     </script>
 </body>
 </html>
