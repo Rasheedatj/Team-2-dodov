@@ -353,10 +353,15 @@ ol li::before{
   gap: 1.5em;
 }
 .article .heading h1 {
-  font-size: 25px;
+  font-size: 22px;
+  font-weight: 700;
   color: var(--color-body-text);
   text-transform: capitalize;
-  margin-bottom: 7px;
+}
+.article .heading .title{
+  color: var(--color-secondary-text);
+  margin-bottom: 22px;
+  font-weight: 500;
 }
 .article .heading .grayLink {
   font-size: 22px;
