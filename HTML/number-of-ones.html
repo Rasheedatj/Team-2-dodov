@@ -17,7 +17,7 @@
             <nav class="head">
               <a href="../index.html">home</a>
               <a href="./blog.html">blog</a>
-              <a href="./number-of-ones.html" class="nav3">number-of-ones</a>
+              <a href="./number-of-ones.html" class="nav3"><i>number-of-ones</i></a>
               <a href="./projects.html">projects</a>
           </nav>    
       </header>
@@ -44,7 +44,6 @@
 > or equal to n.
     </p>
     </pre>
-
     <p>
       Perhaps the most obvious solution is to just loop over the numbers,
       convert them to strings, and count the digits. But the larger the input number, the slower it gets. So, rather than counting, we can calculate the result.
@@ -340,10 +339,19 @@
 
     <a href="" target="_blank" class="monokai">Monokai <span class="text-link">↓</span></a>
     </footer>
+
+    <script>
+         const setTheme = theme => document.documentElement.className = theme;
+ 
+            document.getElementById('theme-select').addEventListener('change', function() {
+            setTheme(this.value);
+            });
+    </script>
+
   </body>
 </html>
 
-<head>
+<!-- <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -351,7 +359,7 @@
     <link id="favicon" href="https://dodov.dev/media/site/d0298ef0fd-1614418428/favicon-monokai.png" rel="icon" type="image/png">
     <title></title>
 
-</head>
+</head> -->
 <body>
     
 </body>

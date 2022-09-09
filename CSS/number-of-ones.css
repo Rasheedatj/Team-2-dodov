@@ -18,8 +18,8 @@
     --var-color: #f92672;
     --code-num-color:#ae81ff;
     --code-text-color: #fd971f;
+    --header-font: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI, system-ui, Ubuntu, sans-serif;
 }
-
 
     :root, :root.dark-theme {
     --color-bg: #252526;
@@ -61,10 +61,202 @@
     --color-warning-foreground: #cca700;
 }
 
-
+:root.light-theme{
+    --color-bg: #f3f3f3;
+    --color-editor: #ffffff;
+    --color-body-text: #000000;
+    --color-secondary-text: #444444;
+    --color-line-text: #237893;
+    --color-line-text-hover: #0b216f;
+    --color-line-highlight-bg: transparent;
+    --color-comment: #008000;
+    --color-tab: #ececec;
+    --color-tab-text: #333333b3;
+    --color-tab-text-active: #333333;
+    --color-accent-1: #267f99;
+    --color-accent-2: #0000ff;
+    --color-selection: #add6ff;
+    --color-scrollbar-border: #7f7f7f4d;
+    --color-scrollbar-thumb: #64646466;
+    --color-scrollbar-thumb-hover: #646464b3;
+    --color-scrollbar-thumb-active: #00000099;
+    --color-scrollbar-shadow: #dddddd;
+    --color-focus: #0090f1;
+    --color-tab-icon-hover: #b8b8b850;
+    --color-tab-icon-active: #a6a6a650;
+    --color-code-bg: #fbfbfb;
+    --color-code-text: #001080;
+    --color-code-text-inline: #800000;
+    --color-code-keyword: #0000ff;
+    --color-code-function: #795e26;
+    --color-code-operator: #000000;
+    --color-code-string: #a31515;
+    --color-code-variable: #000000;
+    --color-code-constant: #098658;
+    --color-code-punctuation: #000000;
+    --color-code-comment: #008000;
+    --color-quote: var(--color-body-text);
+    --color-quote-symbols: #0451a5;
+    --color-error-foreground: #a1260d;
+    --color-warning-foreground: #bf8803;
+}
+:root.monokai-theme {
+    --color-bg: #1e1f1c;
+    --color-editor: #272822;
+    --color-body-text: #f8f8f2;
+    --color-secondary-text: #cfcfc2;
+    --color-line-text: #90908a;
+    --color-line-text-hover: #c2c2bf;
+    --color-line-highlight-bg: #3e3d32;
+    --color-comment: #88846f;
+    --color-tab: #34352f;
+    --color-tab-text: #ccccc7;
+    --color-tab-text-active: #ffffff;
+    --color-accent-1: #a6e22e;
+    --color-accent-2: #4e94ce;
+    --color-selection: #878b9180;
+    --color-scrollbar-border: #7f7f7f4d;
+    --color-scrollbar-thumb: #79797966;
+    --color-scrollbar-thumb-hover: #646464b3;
+    --color-scrollbar-thumb-active: #bfbfbf66;
+    --color-scrollbar-shadow: #000000;
+    --color-focus: #75715e;
+    --color-tab-icon-hover: #5a5d5e50;
+    --color-tab-icon-active: #63666750;
+    --color-code-bg: #22231e;
+    --color-code-text: #ffffff;
+    --color-code-text-inline: #fd971f;
+    --color-code-keyword: #f92672;
+    --color-code-function: #66d9ef;
+    --color-code-operator: #f92672;
+    --color-code-string: #e6db74;
+    --color-code-variable: #ffffff;
+    --color-code-constant: #ae81ff;
+    --color-code-punctuation: #ffffff;
+    --color-code-comment: var(--color-comment);
+    --color-quote: var(--color-comment);
+    --color-code-inserted: #a6e22e;
+    --color-code-removed: #f92672;
+    --color-error-foreground: #f48771;
+    --color-warning-foreground: #cca700;
+}
+:root.github-dark-theme{
+    --color-bg: #1b1f23;
+    --color-editor: #24292e;
+    --color-body-text: #e1e4e8;
+    --color-secondary-text: #959da5;
+    --color-line-text: #768390;
+    --color-line-text-hover: #e1e4e8;
+    --color-line-highlight-bg: #2b3036;
+    --color-comment: #6a737d;
+    --color-tab: #1f2428;
+    --color-tab-text: #959da5;
+    --color-tab-text-active: #e1e4e8;
+    --color-accent-1: #96d0ff;
+    --color-accent-2: #4e94ce;
+    --color-selection: #3392ff44;
+    --color-scrollbar-border: #1b1f23;
+    --color-scrollbar-thumb: #6a737d33;
+    --color-scrollbar-thumb-hover: #6a737d44;
+    --color-scrollbar-thumb-active: #6a737d88;
+    --color-scrollbar-shadow: #00000088;
+    --color-focus: #005cc5;
+    --color-tab-icon-hover: #5a5d5e50;
+    --color-tab-icon-active: #63666750;
+    --color-code-bg: #202428;
+    --color-code-text: #e1e4e8;
+    --color-code-text-inline: #9ecbff;
+    --color-code-keyword: #f97583;
+    --color-code-function: #b392f0;
+    --color-code-operator: #f97583;
+    --color-code-string: #9ecbff;
+    --color-code-variable: #9cdcfe;
+    --color-code-constant: #79b8ff;
+    --color-code-punctuation: #e1e4e8;
+    --color-code-comment: #6a737d;
+    --color-quote: #85e89d;
+    --color-error-foreground: #f97583;
+    --color-warning-foreground: #ffea7f;
+}
+:root.github-light-theme {
+    --color-bg: #f6f8fa;
+    --color-editor: #ffffff;
+    --color-body-text: #24292e;
+    --color-secondary-text: #6a737d;
+    --color-line-text: #1b1f234d;
+    --color-line-text-hover: #24292e;
+    --color-line-highlight-bg: #f6f8fa;
+    --color-comment: #6a737d;
+    --color-tab: #eff2f6;
+    --color-tab-text: #6a737d;
+    --color-tab-text-active: #2f363d;
+    --color-accent-1: #032f62;
+    --color-accent-2: #0000ff;
+    --color-selection: #0366d625;
+    --color-scrollbar-border: #ffffff;
+    --color-scrollbar-thumb: #959da533;
+    --color-scrollbar-thumb-hover: #959da544;
+    --color-scrollbar-thumb-active: #959da588;
+    --color-scrollbar-shadow: #6a737d33;
+    --color-focus: #2188ff;
+    --color-tab-icon-hover: #b8b8b850;
+    --color-tab-icon-active: #a6a6a650;
+    --color-code-bg: #fcfcfc;
+    --color-code-text: var(--color-body-text);
+    --color-code-text-inline: var(--color-code-string);
+    --color-code-keyword: #d73a49;
+    --color-code-function: #6f42c1;
+    --color-code-operator: #d73a49;
+    --color-code-string: #032f62;
+    --color-code-variable: #9cdcfe;
+    --color-code-constant: #79b8ff;
+    --color-code-punctuation: var(--color-body-text);
+    --color-code-comment: #6a737d;
+    --color-quote: #22863a;
+    --color-error-foreground: #cb2431;
+    --color-warning-foreground: #855f00;
+}
+:root.solarized-light-theme {
+    --color-bg: #eee8d5;
+    --color-editor: #fdf6e3;
+    --color-body-text: #333333;
+    --color-secondary-text: #586e75;
+    --color-line-text: #237893;
+    --color-line-text-hover: #567983;
+    --color-line-highlight-bg: #eee8d5;
+    --color-comment: #93a1a1;
+    --color-tab: #e4ddc9;
+    --color-tab-text: #586e75;
+    --color-tab-text-active: #333333;
+    --color-accent-1: #268bd2;
+    --color-accent-2: #0000ff;
+    --color-selection: #eee8d5;
+    --color-scrollbar-border: #7f7f7f4d;
+    --color-scrollbar-thumb: #64646466;
+    --color-scrollbar-thumb-hover: #646464b3;
+    --color-scrollbar-thumb-active: #00000099;
+    --color-scrollbar-shadow: #dddddd;
+    --color-focus: #d3af86;
+    --color-tab-icon-hover: #b8b8b850;
+    --color-tab-icon-active: #a6a6a650;
+    --color-code-bg: #f9f1dc;
+    --color-code-text: #333333;
+    --color-code-text-inline: #2aa198;
+    --color-code-keyword: #268bd2;
+    --color-code-function: #268bd2;
+    --color-code-operator: #859900;
+    --color-code-string: #2aa198;
+    --color-code-variable: #268bd2;
+    --color-code-constant: #d33682;
+    --color-code-punctuation: #333333;
+    --color-code-comment: #93a1a1;
+    --color-quote: #859900;
+    --color-error-foreground: #a1260d;
+    --color-warning-foreground: #bf8803;
+}
 
 body{
-    margin: 5% auto 0;
+    margin: 5% auto;
     padding: 0px 80px;
     background-color: #1e1f1c;
     max-width: 800px;
@@ -75,7 +267,7 @@ body{
 
 }
 header{
-    width:65%;
+    width:60%;
     background-color: #34352f;
     padding: 5px;
 }
@@ -83,12 +275,18 @@ header{
 header a {
     text-decoration: none;
     color: var(--text-color);
-    padding: 10px 50px 10px 10px;
+    padding: 12px 45px 12px 10px;
     border: 0 1px solid;
     font-size: 13px;
+    font-family: var(--header-font);
+    font-weight: 300;
     /* border-right: 1px solid #1e1f1c; */
 }
-
+.head a{
+    font-family: var(--header-font);
+    color: #ccccc7;
+    font-size: 13px;
+}
 .nav3{
     background-color: var(--body-bg-color);
 }
@@ -99,7 +297,9 @@ main{
 }
 .image img{
     width: 640px;
-    height: 340px;
+    height: 360px;
+    background-color: #1e1f1c ;
+    padding: 5px;
 }
 h1{
     font-size: 20px;
@@ -112,15 +312,27 @@ h2{
     font-weight: 900;
 }
 h1::after{
-    content: '06 August 2022';
+    content: ' 06 August 2022';
     font-size: var(--mobile-font-size);
-    margin-left: 260px;
+    margin-left: 360px;
     display:inline-block;
     color: var(--num-color);
     
 }
+.sub-title::after{
+    content: '292 lines';
+    font-size: var(--mobile-font-size);
+    margin-left: 160px;
+    justify-content: right;
+    text-align: right;
+    display:inline-block;
+    color: var(--num-color);
+    
+}
+
 .sub-title{
     color: var(--num-color);
+    margin-top: 0px;
 }
 p{
     margin: 20px 0;
@@ -147,7 +359,7 @@ p{
     margin-left: -80px;
     padding: 20px 100px 20px 80px;
     font-size: var(--web-font-size);
-        overflow:scroll;
+        /* overflow:scroll; */
 }
 .one-times::before{
     content: '- ';
