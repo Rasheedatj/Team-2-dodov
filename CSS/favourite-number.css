@@ -259,19 +259,22 @@ a{
 }
 .head{
     display: flex;
+    gap: 2px;
     width: 70%; 
-    justify-content: space-between;
-    background-color: var(--color-tab);
+    /* justify-content: space-between; */
+    background-color: var(--color-editor);
    
 }
 .head a{
     white-space: nowrap;
-    padding: 1vh 1rem;
+    padding: 1vh 2rem;
     font-size: 13px;
+    background-color: var(--color-tab);
     color: var(--color-body-text);
 }
 .dont-build{
     display: flex;
+    justify-content: flex-start;
     gap: 0%;
 }
 .head .active{

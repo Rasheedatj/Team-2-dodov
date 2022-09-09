@@ -13,6 +13,7 @@
     --nav: #34352f;
     --dateColor: #66665e;
 } */
+:root,
 :root.dark-theme {
     --color-bg: #252526;
     --color-editor: #1e1e1e;
@@ -92,7 +93,7 @@
     --color-error-foreground: #a1260d;
     --color-warning-foreground: #bf8803;
 }
-:root,:root.monokai-theme {
+:root.monokai-theme {
     --color-bg: #1e1f1c;
     --color-editor: #272822;
     --color-body-text: #f8f8f2;

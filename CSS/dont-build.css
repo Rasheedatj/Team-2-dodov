@@ -356,6 +356,9 @@ ol li::before{
 .dont-text span, .dont-text code{
     color: var(--color-code-text-inline);
 }
+.code::before{
+    content: "<div id="__next">";
+}
 .dont-text ul{
     list-style: none;
 }
@@ -460,7 +463,7 @@ blockquote::before{
 .theme{
 
 }
-.theme select{
+    .theme select{
     border: 0;
     outline: 0;
     background-color: var(--defaultContainer);
