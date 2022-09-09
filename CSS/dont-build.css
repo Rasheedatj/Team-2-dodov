@@ -315,7 +315,6 @@ ol li::before{
     /* justify-content: space-between; */
 }
 .first-body h4{
-    font-size: ;
     padding: 0 0%;
 }
 .body-date{
@@ -356,8 +355,9 @@ ol li::before{
 .dont-text span, .dont-text code{
     color: var(--color-code-text-inline);
 }
-.code::before{
-    content: "<div id="__next">";
+.code::after{
+    content: '<div id="__next">';
+    color: var(--color-warning-foreground) ;
 }
 .dont-text ul{
     list-style: none;
