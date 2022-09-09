@@ -10,22 +10,22 @@
     rel="stylesheet"
   />
     <link id="favicon" href="https://dodov.dev/media/site/d0298ef0fd-1614418428/favicon-monokai.png" rel="icon" type="image/png">
-    <title>Document</title>
+    <title>Favourite-Number</title>
     
 </head>
 <body>
     <section class="container">
         <div class="head">
-            <a href="">home</a>
-            <a href="">blog</a>
-            <div class="dont-build active">
-                <a href=""><i>my-favourite-number</i></a>
+            <a href="../index.html">home</a>
+            <a href="./blog.html">blog</a>
+            <div class="dont-build">
+                <p><i>my-favourite-number</i></p>
                 <!-- <img src="" alt=""> -->
-                <a href="../HTML/blog.html"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                <a href="../HTML/blog.html" class="svg"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
                     <path d="M8 8.707l3.646 3.647.708-.707L8.707 8l3.647-3.646-.707-.708L8 7.293 4.354 3.646l-.707.708L7.293 8l-3.646 3.646.707.708L8 8.707z"></path>
                     </svg></a>
             </div>
-            <a href="">projects</a>
+            <a href="./projects.html" class="hide">projects</a>
         </div>
 
 
@@ -88,49 +88,34 @@
                     to say, you can increase my followers count on any of these data harvesting platforms:
                 </p>
             </div>
-            <div class="footer">
-                <div class="social">
-                    <a href="">Twitter</a>
-                    <p class="dot">•</p>
-                    <a href="">LinkedIn</a>
-                    <p class="dot">•</p>
-                    <a href="">Instagram</a>
-                </div>
-                <div class="theme">
+            <footer>
+                <ul class="links">
+                  <li><a href="https://github.com/hdodov" class="neon">GitHub</a></li>
+                  <li class="dot">•</li>
+                  <li><a href="https://twitter.com/yandodov" class="neon">Twitter</a></li>
+                  <li class="dot">•</li>
+                  <li><a href="https://www.linkedin.com/in/yandodov/" class="neon">LinkedIn</a></li>
+                  <li class="dot">•</li>
+                  <li><a href="https://www.instagram.com/yandodov/ " class="neon">Instagram</a></li>
+                </ul>
+                <div class="mode">
                     <select name="theme-select" id="theme-select">
                         <option value="dark-theme">Dark+</option>
                         <option value="light-theme">Light+</option>
-                        <option value="monokai-theme">Monokai</option>
+                        <option value="monokai-theme" selected>Monokai</option>
                         <option value="github-dark-theme">GitHub Dark</option>
                         <option value="github-light-theme">GitHub Light</option>
                         <option value="solarized-light-theme">Solarized Light</option>
                     </select>
+                    <span class="arrow-down">↓</span> 
                 </div>
-            </div>
+              </footer>
         </ol>
         </div>
     </div>
        
     </section>
 
-    <script>
-        const setTheme = theme => document.documentElement.className = theme;
-
-           document.getElementById('theme-select').addEventListener('change', function() {
-           setTheme(this.value);
-           });
-
-       const getTheme = () => {
-           const theme = localStorage.getItem('theme');
-           theme && setTheme(theme);
-       }
-
-   getTheme();
-
-   //         const setTheme = (theme) => {
-   // document.documentElement.className = theme;
-   // localStorage.setItem('theme', theme);
-   // }
-   </script>
+    <script src="../JS/script.js"></script>
 </body>
 </html>
