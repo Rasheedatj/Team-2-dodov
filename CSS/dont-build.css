@@ -262,6 +262,9 @@ body {
 
 }
 
+.code-span::after{
+    content: '<div id="__next">';
+}
 
 
 a{
@@ -332,7 +335,6 @@ ol li::before{
     /* justify-content: space-between; */
 }
 .first-body h4{
-    font-size: ;
     padding: 0 0%;
 }
 .body-date{
