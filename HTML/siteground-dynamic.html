@@ -14,10 +14,10 @@
 
         <header>
             <a href="../index.html">home</a>
-            <a href="blog.html">blog</a>
-            <a href="">
-                <em>Fixing SiteGround Dynamic Cache Issues</em>  
-                <a href="blog.html">&#9747;</a>
+            <a href="./blog.html">blog</a>
+            <a href="./siteground-dynamic.html" class="active-tab">
+                <em>fixing-siteground-dynamic-cache-issues</em>  </a>
+                <a href="blog.html" class="close-btn">&#9747;</a>
             </a>
             <a href="projects.html">projects</a>
         </header>   
@@ -26,7 +26,7 @@
         <div class="container">
             <div class="numbers">
 
-            </div>
+            </div> 
 
             <div class="text">
                 <div class="title">
@@ -70,55 +70,55 @@
 
                 <section>
                     <p>
-                        SiteGround has built-in exceptions for the cache. For example, if a visitor has the wordpress_logged_in_ or Drupal.visitor.name cookie, they'll bypass the cache and see all changes they make immediately. However, if you're using something other than WordPress or Drupal, like me, you're screwed.
+                        SiteGround has built-in exceptions for the cache. For example, if a visitor has the <span class="text-inline">wordpress_logged_in_</span> or <span class="text-inline">Drupal.visitor.name</span> cookie, they'll bypass the cache and see all changes they make immediately. However, if you're using something other than WordPress or Drupal, like me, you're screwed.
                     </p>
                 </section>
 
                 <section>
                     <p>
-                        Luckily, SiteGround respects Cache-Control headers that your server sends. You can turn off the cache entirely by adding the following in your main index.php file:
+                        Luckily, SiteGround respects <span class="text-inline2">Cache-Control </span> <span class="green-underline">headers</span> that your server sends. You can turn off the cache entirely by adding the following in your main <span class="text-inline">index.php</span> file:
                     </p>
                 </section>
 
-                <section>
-                    header('Cache-Control: no-cache');
+                <section class="code-el">
+                    <span class="function">header</span>(<span class="code-string"> 'Cache-Control: no-cache'</span>);
                 </section>
 
                 <section>
                     <p>
-                        Alternatively, in case of using Kirby, you could disable it for just the panel by matching the request path with regex:
+                        Alternatively, in case of using Kirby, you could disable it for just the panel by <span class="green-underline">matching the request path with regex</span>:
                     </p>
                 </section>
 
-                <section>
-                    if (preg_match('~^/(panel|api)(/|\?|$)~', $_SERVER['REQUEST_URI'])) {
-                        header('Cache-Control: no-cache');
+                <section class="code-el">
+                    <span class="keyword"> if </span>(<span class="function">preg_match</span>(<span class="code-string">'~^/(panel|api)(/|\?|$)~'</span>, $_SERVER[<span class="code-string">'REQUEST_URI'</span>])) {
+                        <span class="function">header</span>(<span class="code-string">'Cache-Control: no-cache'</span>);
                     }
                 </section>
 
                 <section>
                     <p>
-                        You can check if this works by inspecting the response headers and looking for the x-proxy-cache header. It tells whether the response was served by the cache or not. If you see the following, the response was not cached:
+                        You can check if this works by <span class="green-underline">inspecting the response headers</span> and looking for the <span class="text-inline">x-proxy-cache</span> header. It tells whether the response was served by the cache or not. If you see the following, the response was not cached:
                     </p>
                 </section>
 
-                <section>
+                <section class="code-el">
                     x-proxy-cache: MISS
                 </section>
 
                 <section>
-                    <p>
+                    <h2>
                         <strong>Handling Cloudflare Cache</strong>
-                    </p>
+                    </h2>
                     <p>
-                        Things can be even more confusing if you use Cloudflare, due to its own caching functionality. It has to be enabled explicitly and only caches static files by default, so it has less unpleasant surprises. In my opinion, it doesn't make much sense to have both caches enabled, so you should probably disable one or the other. You can determine the Cloudflare cache status by looking at the cf-cache-status header.
+                        Things can be even more confusing if you use Cloudflare, due to <span class="green-underline">its own caching functionality</span>. It has to be enabled explicitly and only caches static files by default, so it has less unpleasant surprises. In my opinion, it doesn't make much sense to have both caches enabled, so you should probably disable one or the other. You can determine the Cloudflare cache status by looking at the <span class="text-inline">cf-cache-status</span> header.
                     </p>
                     <p>
                         The response is cached by Cloudflare if you have these headers:
                     </p>
                 </section>
 
-                <section>
+                <section class="code-el">
                     cf-cache-status: HIT <br>
                     x-proxy-cache: MISS
                 </section>
@@ -129,33 +129,37 @@
                     </p>
                 </section>
 
-                <section>
+                <section class="code-el">
                     cf-cache-status: DYNAMIC <br>
                     x-proxy-cache: HIT
                 </section>
-
+                
             </div>
-        </div>
-
-        <div class="footer_line">
-            <hr>
-        </div>
-
-        <footer>
-            <div class="socials">
-                <ul>
-                    <li><a href="" class="green-underline">GitHub</a></li>
-                    <li class="dot">•</li>
-                    <li><a href="" class="green-underline">Twitter</a></li>
-                    <li class="dot">•</li>
-                    <li><a href="" class="green-underline">LinkedIn</a></li>
-                    <li class="dot">•</li>
-                    <li><a href="" class="green-underline">Instagram</a></li>
-                </ul>
+                <span class="footer-line"> <br> </span>
+           <footer>
+               
+            <ul class="links">
+              <li><a href="https://github.com/hdodov" class="neon">GitHub</a></li>
+              <li class="dot">•</li>
+              <li><a href="https://twitter.com/yandodov" class="neon">Twitter</a></li>
+              <li class="dot">•</li>
+              <li><a href="https://www.linkedin.com/in/yandodov/" class="neon">LinkedIn</a></li>
+              <li class="dot">•</li>
+              <li><a href="https://www.instagram.com/yandodov/ " class="neon">Instagram</a></li>
+            </ul>
+            <div class="mode">
+                <select name="theme-select" id="theme-select">
+                    <option value="dark-theme">Dark+</option>
+                    <option value="light-theme">Light+</option>
+                    <option value="monokai-theme">Monokai</option>
+                    <option value="github-dark-theme">GitHub Dark</option>
+                    <option value="github-light-theme">GitHub Light</option>
+                    <option value="solarized-light-theme">Solarized Light</option>
+                </select>
+                <span class="arrow-down">↓</span> 
             </div>
-        </footer>
-
-
+          </footer>
+        </div>
 
     </div>
     
