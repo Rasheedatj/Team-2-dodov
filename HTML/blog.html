@@ -5,10 +5,125 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../CSS/blog.css">
+    <script
+    src="https://kit.fontawesome.com/2bfe15d79d.js"
+    crossorigin="anonymous"
+  ></script>
     <link id="favicon" href="https://dodov.dev/media/site/d0298ef0fd-1614418428/favicon-monokai.png" rel="icon" type="image/png">
     <title>Blog</title>
 </head>
 <body>
-   <script src="../JS/blog.js"></script> 
+   <div class="container">
+     <!-- Menu -->
+     <header>
+        <nav onclick="myFunction(event)" id="navList">
+          <a href="../index.html" >home</a>
+          <a href="./blog.html" class="active">blog</a>
+          <a href="./projects.html">projects</a>
+        </nav>
+      </header>
+
+    <div class="content">
+        <section>
+            <h2>Blog</h2>
+            <p>A place for my developer insights and life experiences.</p>
+        </section>
+        
+        <section>
+            <div>
+                <img src="../IMG/number-of-ones-cover-342x.png" alt="">
+            </div>
+            <div>
+               <a href=""><h2>Number Of Ones</h2></a> 
+                <p>Calculating digits in a series of numbers.</p>
+                <p>06 Aug 2022</p>
+            </div>
+        </section>
+
+        <section>
+            <div>
+                <img src="../IMG/rm-rf-git-cover-342x.png" alt="">
+            </div>
+            <div>
+               <a href=""><h2>Don't Build Your Own Framework</h2></a> 
+                <p>Delusions of having the ability to solve something once and for all.</p>
+
+                <p>19 Jun 2022</p>
+            </div>
+        </section>
+
+        <section>
+            <div>
+                <img src="../IMG/browser-edge-cache-cover-640x.png" alt="">
+            </div>
+            <div>
+                <a href=""><h2>Browser Cache and Edge Cache Explained</h2></a>
+                <p>You updated it? Well, yes, but not really.</p>
+
+                <p>08 Feb 2022</p>
+            </div>
+        </section>
+
+        <section>
+            <div>
+                <img src="../IMG/siteground-random-characters-cover-640x new.png" alt="">
+            </div>
+            <div>
+                <a href=""><h2>Fixing SiteGround Dynamic Cache Issues</h2></a>
+                <p>That's what you get for not using WordPress…</p>
+
+                <p>12 Jan 2022</p>
+            </div>
+        </section>
+
+        <section>
+            <div>
+                <img src="../IMG/binary-24-640x new2.png" alt="">
+            </div>
+            <div>
+                <a href=""><h2>My Favorite Number</h2></a>
+                <p>Reason to start a blog…</p>
+
+                <p>24 Dec 2021</p>
+            </div>
+        </section>
+        <section class="footer-separator"><hr></section>
+        <footer>
+            <div class="links">
+              <div>
+                <a href="https://github.com/hdodov" class="neon">GitHub</a>
+              </div>
+              <div class="dot">
+                <i class="fa fa-circle" aria-hidden="true"></i>
+                <a href="https://twitter.com/yandodov" class="neon">Twitter</a>
+              </div>
+              <div class="dot">
+                <i class="fa fa-circle" aria-hidden="true"></i>
+                <a href="https://www.linkedin.com/in/yandodov/" class="neon"
+                  >LinkedIn</a
+                >
+              </div>
+              <div class="dot">
+                <i class="fa fa-circle" aria-hidden="true"></i>
+                <a href="https://www.instagram.com/yandodov/ " class="neon"
+                  >Instagram</a
+                >
+              </div>
+            </div>
+            <div class="mode">
+                <select>
+                  <option value="dark-plus">Dark+</option>
+                  <option value="light-plus">Light+</option>
+                  <option value="monokai">Monokai</option>
+                  <option value="github-dark">GitHub Dark</option>
+                  <option value="github-light">GitHub Light</option>
+                  <option value="solarized-light">Solarized Light</option>
+                </select>
+                <div class="arrow-down">↓</div> 
+            </div>
+          </footer>
+    </div>
+   </div>
+   <script src="../JS/script.js"></script> 
 </body>
 </html>

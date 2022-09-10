@@ -1,0 +1,51 @@
+/* .editor {
+    display: inline-flex;
+    gap: 10px;
+    font-family: monospace;
+    line-height: 21px;
+    background: #282a3a;
+    border-radius: 2px;
+    padding: 20px 10px;
+    height: 80vh;
+  }
+  
+  textarea {
+    line-height: 21px;
+    overflow-y: hidden;
+    padding: 0;
+    border: 0;
+    background: #282a3a;
+    color: #FFF;
+    min-width: 500px;
+    outline: none;
+    resize: none;
+  }
+  .line-numbers {
+    width: 20px;
+    text-align: right;
+  }
+  
+  .line-numbers span {
+    counter-increment: linenumber;
+  }
+  
+  .line-numbers span::before {
+    content: counter(linenumber);
+    display: block;
+    color: #506882;
+  }   */
+
+
+  /* new testing line */
+  pre{
+    counter-reset: line;
+}
+code{
+    counter-increment: line;
+}
+code:before{
+  content: counter(line);
+}
+code:before{
+  -webkit-user-select: none;
+}
