@@ -10,24 +10,26 @@
       rel="stylesheet"
     />
     <link id="favicon" href="https://dodov.dev/media/site/d0298ef0fd-1614418428/favicon-monokai.png" rel="icon" type="image/png">
-    <title>Document</title>
+    <title>Dont-Build</title>
     
 </head>
 <body>
     <section class="container">
         
-        <div class="head">
-            <a href="">home</a>
-            <a href="">blog</a>
-            <div class="dont-build">
-                <a href="" class="activ">dont-build-your-own-framework</a>
-                <!-- <img src="" alt=""> -->
-                <a href="../HTML/blog.html"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-                    <path d="M8 8.707l3.646 3.647.708-.707L8.707 8l3.647-3.646-.707-.708L8 7.293 4.354 3.646l-.707.708L7.293 8l-3.646 3.646.707.708L8 8.707z"></path>
-                    </svg></a>
-            </div>
-            <a href="">projects</a>
-        </div>
+        <header>
+            <ul>
+                <li class="home"><a href="../index.html">home</a></li>
+                <li class="blog"><a href="blog.html">blog</a></li>
+                <li class="browser-cache">
+                    <a href="" >
+                        <em>dont-build-your-own-framework</em>
+                        <a href="blog.html">&#9747;</a>
+                    </a>
+                </li>
+                <li class="projects"><a href="projects.html">projects</a></li>
+            </ul>
+        </header>
+
         <div class="all">
         <div class="body-container">
 
@@ -36,10 +38,12 @@
             <div class="dont-text">
 
                 <div class="first-body">
-                    <h4>Don't Build Your Own Framework
-                        Delusions of having the ability to solve something once and for all.</h4>
+                    <div class="first">
+                        <h4>Don't Build Your Own Framework</h4>
+                       <p>   Delusions of having the ability to solve something once and for all.</p>
+                    </div>
                         <div class="body-date">
-                            <h6>19 Jun 2022</h6>
+                            <h5>19 Jun 2022</h5>
                             <p>197 lines</p>
                         </div>
                 </div>
@@ -54,8 +58,8 @@
                         but I didn't pick it for two reasons:</p>
                     
                         <div class="it">
-                            <p>It had its own opinion on design</p>
-                            <p class="its">It didn't meet my requirements for "smoothness"</p>
+                            <p class="its">It had its own opinion on design</p>
+                            <p >It didn't meet my requirements for "smoothness"</p>
                         </div>
                    
                     <p>This lead me to search for other frameworks that, unlike UIkit, 
@@ -209,29 +213,31 @@
                 </div>
                    <!-- Forward slash -->
                    <div class="slash"></div>
+                   <footer>
+                    <ul class="links">
+                      <li><a href="https://github.com/hdodov" class="neon">GitHub</a></li>
+                      <li class="dot">•</li>
+                      <li><a href="https://twitter.com/yandodov" class="neon">Twitter</a></li>
+                      <li class="dot">•</li>
+                      <li><a href="https://www.linkedin.com/in/yandodov/" class="neon">LinkedIn</a></li>
+                      <li class="dot">•</li>
+                      <li><a href="https://www.instagram.com/yandodov/ " class="neon">Instagram</a></li>
+                    </ul>
+                    <div class="mode">
+                        <select name="theme-select" id="theme-select">
+                            <option value="dark-theme">Dark+</option>
+                            <option value="light-theme">Light+</option>
+                            <option value="monokai-theme" >Monokai</option>
+                            <option value="github-dark-theme">GitHub Dark</option>
+                            <option value="github-light-theme">GitHub Light</option>
+                            <option value="solarized-light-theme">Solarized Light</option>
+                        </select>
+                        <span class="arrow-down">↓</span> 
+                    </div>
+                  </footer>
             </div>
         </div>
-        <div class="footer">
-            <div class="social">
-                <a href="">GitHub</a>
-                <p class="dot">•</p>
-                <a href="">Twitter</a>
-                <p class="dot">•</p>
-                <a href="">LinkedIn</a>
-                <p class="dot">•</p>
-                <a href="">Instagram</a>
-            </div>
-            <div class="theme">
-                <select name="theme-select" id="theme-select">
-                    <option value="dark-theme">Dark+</option>
-                    <option value="light-theme">Light+</option>
-                    <option value="monokai-theme">Monokai</option>
-                    <option value="github-dark-theme">GitHub Dark</option>
-                    <option value="github-light-theme">GitHub Light</option>
-                    <option value="solarized-light-theme">Solarized Light</option>
-                </select>
-            </div>
-        </div>
+   
     </div>
     </section>
     <script src="../JS/script.js"></script>

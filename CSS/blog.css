@@ -460,7 +460,7 @@ a.active {
         padding-right: 2ch;
     }
     .project-box{
-        display: block;
+       flex-direction: column;
     }
     .project-text{
         max-width: 360px;
@@ -490,7 +490,7 @@ a.active {
         font-size: 14px;
     }
     .img-box, .project-title, .ref-link{
-        display: none;
+        /* display: none; */
     }
     .project-image2 img{
         width: 42px;
