@@ -110,7 +110,7 @@
       Now, we can do the same, but for the tens. If we remove the 36
       from 236, we get 2. So we know that the digit 1 will cycle 2 times in the tens column:
     </p>
-
+ 
     <p>
         <pre class="num-el">10-19, 110-119 <br>
  ↑  ↑    ↑   ↑</pre>
@@ -330,15 +330,28 @@
     </main>
 
     <footer>
-        <nav class="social-link">
-      <a href="#" target="_blank" class="text-link">GitHub</a> <span></span>
-      <a href="#" target="_blank" class="text-link">Twitter</a> <span></span>
-      <a href="#" target="_blank" class="text-link">LinkedIn</a> <span></span>
-      <a href="#" target="_blank" class="text-link">Instagram</a>
-    </nav>
-
-    <a href="" target="_blank" class="monokai">Monokai <span class="text-link">↓</span></a>
-    </footer>
+            <ul class="links">
+              <li><a href="https://github.com/hdodov" class="neon">GitHub</a></li>
+              <li class="dot">•</li>
+              <li><a href="https://twitter.com/yandodov" class="neon">Twitter</a></li>
+              <li class="dot">•</li>
+              <li><a href="https://www.linkedin.com/in/yandodov/" class="neon">LinkedIn</a></li>
+              <li class="dot">•</li>
+              <li><a href="https://www.instagram.com/yandodov/ " class="neon">Instagram</a></li>
+            </ul>
+            <div class="mode">
+                <select name="theme-select" id="theme-select">
+                    <option value="dark-theme">Dark+</option>
+                    <option value="light-theme">Light+</option>
+                    <option value="monokai-theme">Monokai</option>
+                    <option value="github-dark-theme">GitHub Dark</option>
+                    <option value="github-light-theme">GitHub Light</option>
+                    <option value="solarized-light-theme">Solarized Light</option>
+                </select>
+                <span class="arrow-down">↓</span> 
+            </div>
+          </footer>
+          
 
     <script>
          const setTheme = theme => document.documentElement.className = theme;

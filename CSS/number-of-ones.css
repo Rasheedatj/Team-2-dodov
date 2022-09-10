@@ -21,7 +21,47 @@
     --header-font: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI, system-ui, Ubuntu, sans-serif;
 }
 
-    :root, :root.dark-theme {
+    :root, :root.monokai-theme {
+    --color-bg: #1e1f1c;
+    --color-editor: #272822;
+    --color-body-text: #f8f8f2;
+    --color-secondary-text: #cfcfc2;
+    --color-line-text: #90908a;
+    --color-line-text-hover: #c2c2bf;
+    --color-line-highlight-bg: #3e3d32;
+    --color-comment: #88846f;
+    --color-tab: #34352f;
+    --color-tab-text: #ccccc7;
+    --color-tab-text-active: #ffffff;
+    --color-accent-1: #a6e22e;
+    --color-accent-2: #4e94ce;
+    --color-selection: #878b9180;
+    --color-scrollbar-border: #7f7f7f4d;
+    --color-scrollbar-thumb: #79797966;
+    --color-scrollbar-thumb-hover: #646464b3;
+    --color-scrollbar-thumb-active: #bfbfbf66;
+    --color-scrollbar-shadow: #000000;
+    --color-focus: #75715e;
+    --color-tab-icon-hover: #5a5d5e50;
+    --color-tab-icon-active: #63666750;
+    --color-code-bg: #22231e;
+    --color-code-text: #ffffff;
+    --color-code-text-inline: #fd971f;
+    --color-code-keyword: #f92672;
+    --color-code-function: #66d9ef;
+    --color-code-operator: #f92672;
+    --color-code-string: #e6db74;
+    --color-code-variable: #ffffff;
+    --color-code-constant: #ae81ff;
+    --color-code-punctuation: #ffffff;
+    --color-code-comment: var(--color-comment);
+    --color-quote: var(--color-comment);
+    --color-code-inserted: #a6e22e;
+    --color-code-removed: #f92672;
+    --color-error-foreground: #f48771;
+    --color-warning-foreground: #cca700;
+}
+:root.dark-theme {
     --color-bg: #252526;
     --color-editor: #1e1e1e;
     --color-body-text: #d4d4d4;
@@ -100,46 +140,7 @@
     --color-error-foreground: #a1260d;
     --color-warning-foreground: #bf8803;
 }
-:root.monokai-theme {
-    --color-bg: #1e1f1c;
-    --color-editor: #272822;
-    --color-body-text: #f8f8f2;
-    --color-secondary-text: #cfcfc2;
-    --color-line-text: #90908a;
-    --color-line-text-hover: #c2c2bf;
-    --color-line-highlight-bg: #3e3d32;
-    --color-comment: #88846f;
-    --color-tab: #34352f;
-    --color-tab-text: #ccccc7;
-    --color-tab-text-active: #ffffff;
-    --color-accent-1: #a6e22e;
-    --color-accent-2: #4e94ce;
-    --color-selection: #878b9180;
-    --color-scrollbar-border: #7f7f7f4d;
-    --color-scrollbar-thumb: #79797966;
-    --color-scrollbar-thumb-hover: #646464b3;
-    --color-scrollbar-thumb-active: #bfbfbf66;
-    --color-scrollbar-shadow: #000000;
-    --color-focus: #75715e;
-    --color-tab-icon-hover: #5a5d5e50;
-    --color-tab-icon-active: #63666750;
-    --color-code-bg: #22231e;
-    --color-code-text: #ffffff;
-    --color-code-text-inline: #fd971f;
-    --color-code-keyword: #f92672;
-    --color-code-function: #66d9ef;
-    --color-code-operator: #f92672;
-    --color-code-string: #e6db74;
-    --color-code-variable: #ffffff;
-    --color-code-constant: #ae81ff;
-    --color-code-punctuation: #ffffff;
-    --color-code-comment: var(--color-comment);
-    --color-quote: var(--color-comment);
-    --color-code-inserted: #a6e22e;
-    --color-code-removed: #f92672;
-    --color-error-foreground: #f48771;
-    --color-warning-foreground: #cca700;
-}
+
 :root.github-dark-theme{
     --color-bg: #1b1f23;
     --color-editor: #24292e;
@@ -268,13 +269,13 @@ body{
 }
 header{
     width:60%;
-    background-color: #34352f;
+    /* background-color: #34352f; */
     padding: 5px;
 }
 
 header a {
     text-decoration: none;
-    color: var(--text-color);
+    color: var(--color-body-text);
     padding: 12px 45px 12px 10px;
     border: 0 1px solid;
     font-size: 13px;
@@ -284,7 +285,7 @@ header a {
 }
 .head a{
     font-family: var(--header-font);
-    color: #ccccc7;
+    color: var(--color-tab-text);
     font-size: 13px;
 }
 .nav3{
@@ -298,7 +299,7 @@ main{
 .image img{
     width: 640px;
     height: 360px;
-    background-color: #1e1f1c ;
+    background-color: var(--color-bg) ;
     padding: 5px;
 }
 h1{
@@ -418,6 +419,7 @@ footer{
     left: -6.5em; 
 }*/
 
+
 @media screen and (max-width:600px) {
     body{
     margin: auto;
@@ -465,5 +467,45 @@ header a {
 footer a {
     width: 100%;
     display: block;
+} 
+
+
 }
-}
+   /* MEDIA QUERY */
+@media (max-width: 600px){
+    body{
+        max-width: 600px;
+    }
+    header{
+
+    }
+
+    h1::after{
+        display: none;
+    }
+    .sub-title::after{
+        display: none;
+    }
+   footer{
+        flex-direction: column;
+        gap: 1em;
+    }
+    footer .links{
+        flex-direction: column;
+        justify-content: right;
+        gap: .5em;
+    }
+    footer .dot{
+        display: none;
+    }
+    
+    footer .fa-circle{
+        display: none;
+    }
+    footer .mode{
+        justify-content: flex-start;
+    }
+      .slash::after {
+        font-size: 23px;
+      }
+    }
