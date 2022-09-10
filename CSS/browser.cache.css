@@ -554,6 +554,9 @@ blockquote::before{
     header ul li{
         /* min-width: 25%; */
     }
+    .content::before{
+        font-size: 14px;
+    }
     .text{
         padding-left: 5ch;
         padding-right: 2ch;
