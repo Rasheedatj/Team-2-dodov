@@ -265,7 +265,7 @@ a{
 .container{
     max-width: 850px;
     margin: 0 auto;
-    margin-top: 5%;
+    margin-top: 6%;
     background-color: var(--color-editor);
     padding-bottom: 40%;
     /* overflow: hidden; */
@@ -281,7 +281,7 @@ header{
 header ul{
     list-style: none;
     display: flex;
-    width: 80%;
+    /* width: 80%; */
 }
 header ul li{
     padding: 10px;
@@ -438,6 +438,9 @@ blockquote::before{
 .question4 ol{
     list-style:none;
 }
+.question4 ul li{
+    display: flex;
+}
 .question4 ul li::before{
     content: '-';
     margin-right: 2ch;
@@ -551,8 +554,15 @@ blockquote::before{
    }
 
    @media (max-width:600px) {
+    body{
+        font-size: 14px;
+    }
+    .container{
+        margin-top: 0;
+    }
     header ul li{
-        /* min-width: 25%; */
+        min-width: 5rem;
+        padding: 10px 5px 10px 5px;
     }
     .content::before{
         font-size: 14px;
