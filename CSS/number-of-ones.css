@@ -436,7 +436,7 @@ footer{
     background-color: var(--cont-bg-color);
     width: 87%;
     display: block;
-    overflow: hidden;
+    overflow: hidden;   
     font-size: var(--web-font-size);
 }
 .num-el pre{

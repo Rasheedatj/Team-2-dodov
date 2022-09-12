@@ -23,19 +23,19 @@
     }
     .main .neon::after {
      
-     border-bottom: 1px solid var(--defaultLinkColor);
+     border-bottom: 1px solid var(--color-accent-1);
    }
-    footer{
-        margin-top: 5em;
+        footer{
         flex-direction: column;
         gap: 1em;
     }
     footer .links{
         flex-direction: column;
+        justify-content: right;
         gap: .5em;
     }
     footer .dot{
-        display: block;
+        display: none;
     }
     
     footer .fa-circle{
@@ -44,6 +44,9 @@
     footer .mode{
         justify-content: flex-start;
     }
+      .slash::after {
+        font-size: 23px;
+      }
     .main{
         padding: 2em;
         padding-left: 4em;
@@ -69,7 +72,7 @@
         margin-bottom: 0;
     }
     .about_dodov .heading .title{
-        font-size: 14px;
+        font-size: 16px;
         margin-top: 35px;
     }
     .latest_articles{
@@ -80,13 +83,14 @@
         gap: .8em;
     }
    .latest_articles .sup_header{
-       font-size: 17px;
+       font-size: 20px;
    }
     .latest_articles .image{
-        width: 100%;
-        height: 200px;
-        background-size: contain;
-        background-position: left;
+       margin-bottom: 0;
+       width: 100%;
+    }
+    .latest_articles .image1{
+       margin-top: 0;
     }
     
     .latest_articles .side_text{
@@ -94,7 +98,7 @@
     }
     
     .article .side_text p{
-     font-size: 14px;
+     font-size: 16px;
  }
      .article .heading .grayLink{
          font-size: 17px;
@@ -105,24 +109,7 @@
     .continue a{
         font-size: 16px;
     }
-    .slash{
-        margin-bottom: 3.3em;
-    }
-    .slash::after {
-     content: "---------------------------------------------";
-     position: absolute;
-     color: var(--dateColor);
-     font-size: 23px;
-     
-     font-family: "Times New Roman", Times, serif;
-     
-   }
-   .slash::before {
-     content: "//";
-     position: absolute;
-     color: var(--dateColor);
-     font-size: 18px;
-   }
+
      .projects{
          margin-top: 5em;
      }
@@ -149,6 +136,9 @@
         margin-left: -25%;
         margin-top: .5em;
     }
+    .projects .side_text1 p{
+        margin-left: -28%;
+    }
     .projects .nexo_img, .projects .rundown_img{
      width: 250px;
      height: 60px;
@@ -164,16 +154,8 @@
  }
 
  @media screen and (max-width:540px) {
-    .slash::after {
-        content: "----------------------------------------";
-        position: absolute;
-        color: var(--dateColor);
-        font-size: 23px;
-        font-family: "Times New Roman", Times, serif;
-      }
-
       ol{
-        top: 2.5%;
+        top: 2.8%;
         line-height: 1.52;
         }
  }
@@ -184,7 +166,7 @@
        
    }
    ol{
-    top: 2.5%;
+    top: 3.1%;
     line-height: 1.383;
     }
 ol .hide{
@@ -196,29 +178,6 @@ ol .hide{
    }
    .main .neon{
        font-size: 16px;
-   }
-   .main .neon::after {
-    
-    border-bottom: 1px solid var(--defaultLinkColor);
-  }
-   footer{
-       margin-top: 5em;
-       flex-direction: column;
-       gap: 1em;
-   }
-   footer .links{
-       flex-direction: column;
-       gap: .5em;
-   }
-   footer .dot{
-       display: block;
-   }
-   
-   footer .fa-circle{
-       display: none;
-   }
-   footer .mode{
-       justify-content: flex-start;
    }
    .main{
        padding: 2em;
@@ -257,11 +216,13 @@ ol .hide{
   .latest_articles .sup_header{
       font-size: 17px;
   }
-   .latest_articles .image{
-       width: 100%;
-       height: 200px;
-       background-size: contain;
-   }
+  .latest_articles .image{
+    margin-bottom: 1em;
+    width: 100%;
+ }
+ .latest_articles .image1{
+    margin-top: 1em;
+ }
    
    .latest_articles .side_text{
        width: 100%;
@@ -279,24 +240,6 @@ ol .hide{
    .continue a{
        font-size: 16px;
    }
-   .slash{
-       margin-bottom: 3.3em;
-   }
-   .slash::after {
-    content: "------------------------------------";
-    position: absolute;
-    color: var(--dateColor);
-    font-size: 23px;
-    
-    font-family: "Times New Roman", Times, serif;
-    
-  }
-  .slash::before {
-    content: "//";
-    position: absolute;
-    color: var(--dateColor);
-    font-size: 18px;
-  }
     .projects{
         margin-top: 5em;
     }
