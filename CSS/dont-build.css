@@ -245,6 +245,9 @@ body {
 
 }
 
+.code-span::after{
+    content: '<div id="__next">';
+}
 
 
 a{
@@ -336,16 +339,6 @@ header a{
     display: flex;
     justify-content: space-between;
 }
-.first-body p{
-    margin-top: 0px;
-    font-size: 0.9rem;
-}
-.first{
-    width: 60%;
-}
-.first h4{
-    font-weight: 700;
-    font-size: 1.25rem;
 }
 .body-date{
     width: 20%;
