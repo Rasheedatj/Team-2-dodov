@@ -14,13 +14,16 @@
             <ul>
                 <li class="home"><a href="../index.html">home</a></li>
                 <li class="blog"><a href="blog.html">blog</a></li>
-                <li><a href="" class="browser-cache"><em>browser-cache-and-edge-cache-explained</em>
-                    <a href="blog.html">&#9747;</a></a></li>
+                <li class="browser-cache">
+                    <a href="" >
+                        <em>browser-cache-and-edge-cache-explained</em>
+                        <a href="blog.html">&#9747;</a>
+                    </a>
+                </li>
                 <li class="projects"><a href="projects.html">projects</a></li>
             </ul>
         </header>
         <div class="content">
-            <div class="numbers"></div>
             <div class="text">
                 <div class="title">
                     <div class="left">
@@ -29,7 +32,7 @@
                     </div>
                     <div class="right">
                        <p>08 Feb 2022
-                        <br>182 lines
+                        <br><span class="line-count">182 lines</span> 
                        </p>
                     </div>
                 </div>
@@ -39,13 +42,14 @@
                 <div class="below-image">
                     <p>
                     Does the following sound familiar?</p>
+                    <blockquote>
                     <ul class="symbol-list">
                         <li>"The new feature is live."</li>
                         <li>"I can't see it."</li>
                         <li>"Have you cleared your browser cache?"</li>
                         <li>"Yes. It's still not visible."</li>
                         <li>"<b><em>Hmmm…</em></b>"</li>
-                    </ul>
+                    </ul></blockquote>
                     <p>
                     This could happen when there are multiple layers of <a href="" class="green-underline">caching</a> in play and one of them has not expired. If you've used something like <a href="" class="green-underline">Cloudflare CDN</a>, you've likely ran into this.</p>
                 </div>
@@ -79,19 +83,19 @@
                     </div>
                     <p>However, if you've chosen to cache the HTML content of your pages as well, you'd have to get around that too, since changing the image URL means changing the HTML. So you'd have to change the page URL as well:</p>
                     <div class="scroll-container">
-                        <!-- https://example.com/about-us?version=2   -->
+                        https://example.com/about-us?version=2  
                     </div>
-                    <p>This is where things get tricky, because even if your web framework can easily change all links to the updated page, every other site on the internet also has to do it. That's impossible, so you have to pick a window of time that you're comfortable with and in which users may see outdated content.</p>
+                    <p>This is where things get tricky, because even if your web framework can easily change all links to the updated page, <b>every other site on the internet</b> also has to do it. That's impossible, so you have to pick a window of time that you're comfortable with and in which users may see outdated content.</p>
                     <p>If you have the following setup:</p>
                     <ul>
-                        <li>Browser cache TTL: 30 minutes</li>
-                        <li>Edge cache TTL: 1 minute</li>
+                        <li><div>Browser cache TTL: <b>30 minutes</b></div>   </li>
+                        <li><div>Edge cache TTL: <b>1 minute</b></div> </li>
                     </ul>
                     <p>…there are several possible outcomes:</p>
                     <ol>
-                        <li>If a change happened over 30 minutes ago, both caches would have expired and it's guaranteed that the user will see the updated version.</li>
-                        <li>If a change happened over 1 minute ago, only the edge cache is guaranteed to have expired. If a user has seen the page within the last 30 minutes and is cached by their browser, they can see the change by clearing their browser cache, opening an incognito window, or doing a <a href="" class="green-underline">hard reload</a> .</li>
-                        <li>If a change happened less than 1 minute ago, both caches would still be considered fresh. Users will not be able to see the update, even if they clear their browser cache, because the closest edge server would still return the old version. The only solution here is for the website owner to prematurely force the cache to become stale by <a href=""  class="green-underline">purging it</a> .</li>
+                        <li><div>If a change happened <strong>over 30 minutes ago</strong>, both caches would have expired and it's guaranteed that the user will see the updated version.</div></li>
+                        <li><div>If a change happened <strong>over 1 minute ago</strong>, only the edge cache is guaranteed to have expired. If a user has seen the page within the last 30 minutes and is cached by their browser, they can see the change by clearing their browser cache, opening an incognito window, or doing a <a href="" class="green-underline">hard reload</a> .</div></li>
+                        <li><div>If a change happened <strong>less than 1 minute ago</strong>, both caches would still be considered fresh. Users will not be able to see the update, <strong>even if they clear their browser cache</strong>, because the closest edge server would still return the old version. The only solution here is for the website owner to prematurely force the cache to become stale by <a href=""  class="green-underline">purging it</a> .</div></li>
                     </ol>
                 </section>
                 <section class="conclusion">
@@ -101,31 +105,31 @@
                     <p>Pick a lower TTL to reduce the chance of outdated content, or a higher TTL for better cache effectiveness, but be ready to change URLs, open incognito windows, and purge cache.</p>
 
                 </section>
-                <section class="footer-separator"><hr></section>
-                <footer>
-            <div class="socials">
-                <ul>
-                    <li><a href="" class="green-underline">GitHub</a></li>
-                    <li class="dot">•</li>
-                    <li><a href="" class="green-underline">Twitter</a></li>
-                    <li class="dot">•</li>
-                    <li><a href="" class="green-underline">LinkedIn</a></li>
-                    <li class="dot">•</li>
-                    <li><a href="" class="green-underline">Instagram</a></li>
-                </ul>
-            </div>
-            <div class="style-options">
-                <select name="" id="">
-                    <option value="">Dark+</option>
-                    <option value="">Light+</option>
-                    <option value="" selected>Monokai</option>
-                    <option value="">GitHub Dark</option>
-                    <option value="">GitHub Light</option>
-                    <option value="">Solarized Light</option>
+        <div class="slash"></div>
+        <footer>
+            <ul class="links">
+              <li><a href="https://github.com/hdodov" class="neon">GitHub</a></li>
+              <li class="dot">•</li>
+              <li><a href="https://twitter.com/yandodov" class="neon">Twitter</a></li>
+              <li class="dot">•</li>
+              <li><a href="https://www.linkedin.com/in/yandodov/" class="neon">LinkedIn</a></li>
+              <li class="dot">•</li>
+              <li><a href="https://www.instagram.com/yandodov/ " class="neon">Instagram</a></li>
+            </ul>
+            <div class="mode">
+                <select name="theme-select" id="theme-select">
+                    <option value="dark-theme">Dark+</option>
+                    <option value="light-theme">Light+</option>
+                    <option value="monokai-theme" selected>Monokai</option>
+                    <option value="github-dark-theme">GitHub Dark</option>
+                    <option value="github-light-theme">GitHub Light</option>
+                    <option value="solarized-light-theme">Solarized Light</option>
                 </select>
+                <span class="arrow-down">↓</span> 
             </div>
-                </footer>
+          </footer>
             </div>
         </div>
+        <script src="../JS/script.js"></script>
 </body>
 </html>
